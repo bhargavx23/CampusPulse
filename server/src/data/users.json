@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "6adc4478b641afb52714cc48",
+    "name": "Bhargav Pasupuleti",
+    "email": "bhargavpasupuleti5@gmail.com",
+    "role": "admin",
+    "branch": "",
+    "yearOfStudy": "",
+    "section": "",
+    "rollNumber": "",
+    "studentId": "ADMIN-PORTAL-CHIEF",
+    "phone": "+1 (555) 019-2834",
+    "hostelBlock": "Administrative Wing",
+    "roomNumber": "Dean Office 101",
+    "emergencyContact": "Campus Administration Desk",
+    "isVerified": true,
+    "createdAt": "2026-10-24T05:39:04.489Z",
+    "updatedAt": "2026-10-24T05:49:29.934Z",
+    "id": "6adc4478b641afb52714cc48"
+  }
+]

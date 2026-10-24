@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-24T05:49:29.854Z",
+    "database": "mongodb://localhost:27017/campuspulse",
+    "environment": "development",
+    "userCount": 3,
+    "complaintCount": 1
+  },
+  "users": [
+    {
+      "_id": "6adc4478b641afb52714cc48",
+      "name": "Bhargav Pasupuleti",
+      "email": "bhargavpasupuleti5@gmail.com",
+      "role": "admin",
+      "branch": "",
+      "yearOfStudy": "",
+      "section": "",
+      "rollNumber": "",
+      "studentId": "ADMIN-PORTAL-CHIEF",
+      "phone": "+1 (555) 019-2834",
+      "hostelBlock": "Administrative Wing",
+      "roomNumber": "Dean Office 101",
+      "emergencyContact": "Campus Administration Desk",
+      "passwordHash": "724e4c1b11f208beb01e0078c45f7a53:e7630dc12e02c50c6c9337951425df2b95ec0a0ad1c2162caf641bf700231f6e515a5000e3ef5b6822d32f1c5ce3edb908acbf9d22f075e72799c7f99b7a0ca1",
+      "isVerified": true,
+      "createdAt": "2026-10-24T05:39:04.489Z",
+      "updatedAt": "2026-10-24T05:39:04.489Z",
+      "__v": 0
+    },
+    {
+      "_id": "6adc46e05238506e8c9b838d",
+      "name": "Priya Sharma",
+      "email": "priya.sharma.1792820960028@campus.edu",
+      "role": "student",
+      "branch": "CSE — Computer Science and Engineering",
+      "yearOfStudy": "2nd Year",
+      "section": "B",
+      "rollNumber": "24CS5263",
+      "studentId": "24CS5263",
+      "phone": "+91 98765 43210",
+      "hostelBlock": "Gargi Hall of Residence",
+      "roomNumber": "Room 208",
+      "emergencyContact": "Campus Emergency Services (+1 555-HELP)",
+      "passwordHash": "6e363f8956f0574e9ad3ea077d16808f:83499ebe5a96277d1fec4525484ad8ec9db89d058d8352cb883213e020baaeea7cf7213d6472fcf3be5ff354f9bee3d93b1be7ec91207806042935b79e7cd7f9",
+      "isVerified": true,
+      "createdAt": "2026-10-24T05:49:20.099Z",
+      "updatedAt": "2026-10-24T05:49:20.099Z",
+      "__v": 0
+    },
+    {
+      "_id": "6adc46e05238506e8c9b8390",
+      "name": "Arjun Patel",
+      "email": "arjun.patel.1792820960208@campus.edu",
+      "role": "student",
+      "branch": "IT — Information Technology",
+      "yearOfStudy": "3rd Year",
+      "section": "A",
+      "rollNumber": "23IT7619",
+      "studentId": "23IT7619",
+      "phone": "",
+      "hostelBlock": "Residential Block",
+      "roomNumber": "N/A",
+      "emergencyContact": "Campus Emergency Services (+1 555-HELP)",
+      "passwordHash": "b7c10694464beffd9f05d6ee0b5f7cc6:f4b3b03955e8917f8a840abc4e89efceeefc1c80dd6fe96af4c76f00c47a7ebc958abd975bc12b934a8e9ed60406856f77e353a01e34ffd919eee2f0f278cb59",
+      "isVerified": true,
+      "createdAt": "2026-10-24T05:49:20.268Z",
+      "updatedAt": "2026-10-24T05:49:20.268Z",
+      "__v": 0
+    }
+  ],
+  "complaints": [
+    {
+      "_id": "6adc46e05238506e8c9b838e",
+      "trackingId": "CP-2026-1001",
+      "student": "6adc46e05238506e8c9b838d",
+      "studentName": "Priya Sharma",
+      "studentEmail": "priya.sharma.1792820960028@campus.edu",
+      "studentId": "24CS5263",
+      "title": "AC Blower and Projector Display Breakdown in Lab 4",
+      "category": "Electricity",
+      "location": "Sir C.V. Raman Academic Block, 3rd Floor, Lab 4",
+      "priority": "Urgent",
+      "status": "resolved",
+      "description": "During morning computer networks lab, the ceiling AC blower stopped working and the central display began flickering vigorously, interrupting lecture slides.",
+      "assignedTo": "Campus Electrical Services Unit #2",
+      "resolutionNote": "Sub-panel breaker replaced, line filter checked and calibrated. All Lab 4 equipment tested functional.",
+      "resolvedAt": "2026-10-24T05:49:20.321Z",
+      "attachments": [
+        {
+          "name": "lab_breaker_photo.jpg",
+          "size": "1.2 MB",
+          "type": "image/jpeg",
+          "url": ""
+        }
+      ],
+      "timeline": [
+        {
+          "id": "tl_1792820960198_sub",
+          "status": "Submitted",
+          "label": "Complaint Submitted",
+          "timestamp": "2026-10-24T05:49:20.198Z",
+          "actor": "Priya Sharma (Student)",
+          "note": "Grievance submitted through student portal with campus location details."
+        },
+        {
+          "id": "tl_1792820960298_trg",
+          "status": "in-progress",
+          "label": "Technician Dispatched / In Progress",
+          "timestamp": "2026-10-24T05:49:20.298Z",
+          "actor": "Bhargav Pasupuleti (Administrator)",
+          "note": "Assigned Senior Technician David Vance. Inspection scheduled for 2:30 PM."
+        },
+        {
+          "id": "tl_1792820960321_trg",
+          "status": "resolved",
+          "label": "Grievance Resolved & Findings Recorded",
+          "timestamp": "2026-10-24T05:49:20.321Z",
+          "actor": "Bhargav Pasupuleti (Administrator)",
+          "note": "Sub-panel breaker replaced, line filter checked and calibrated. All Lab 4 equipment tested functional."
+        }
+      ],
+      "createdAt": "2026-10-24T05:49:20.202Z",
+      "updatedAt": "2026-10-24T05:49:20.321Z",
+      "__v": 2
+    }
+  ],
+  "notifications": [
+    {
+      "_id": "6adc46e05238506e8c9b838f",
+      "user": "6adc46e05238506e8c9b838d",
+      "title": "Grievance Registered",
+      "message": "Your grievance #CP-2026-1001 has been submitted and queued for institutional review.",
+      "type": "success",
+      "complaintId": "CP-2026-1001",
+      "isRead": false,
+      "createdAt": "2026-10-24T05:49:20.204Z",
+      "__v": 0
+    },
+    {
+      "_id": "6adc46e05238506e8c9b8391",
+      "user": "6adc46e05238506e8c9b838d",
+      "title": "Complaint Status Update: CP-2026-1001",
+      "message": "Your grievance \"AC Blower and Projector Display Breakdown in Lab 4\" status is now IN-PROGRESS. Findings: Assigned Senior Technician David Vance. Inspection scheduled for 2:30 PM.",
+      "type": "status_update",
+      "complaintId": "CP-2026-1001",
+      "isRead": false,
+      "createdAt": "2026-10-24T05:49:20.309Z",
+      "__v": 0
+    },
+    {
+      "_id": "6adc46e05238506e8c9b8392",
+      "user": "6adc46e05238506e8c9b838d",
+      "title": "Complaint Status Update: CP-2026-1001",
+      "message": "Your grievance \"AC Blower and Projector Display Breakdown in Lab 4\" status is now RESOLVED. Findings: Sub-panel breaker replaced, line filter checked and calibrated. All Lab 4 equipment tested functional.",
+      "type": "resolution",
+      "complaintId": "CP-2026-1001",
+      "isRead": false,
+      "createdAt": "2026-10-24T05:49:20.323Z",
+      "__v": 0
+    }
+  ]
+}

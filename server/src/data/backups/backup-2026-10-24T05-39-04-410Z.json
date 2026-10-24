@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-24T05:39:04.411Z",
+    "database": "mongodb://localhost:27017/campuspulse",
+    "environment": "development",
+    "userCount": 0,
+    "complaintCount": 0
+  },
+  "users": [],
+  "complaints": [],
+  "notifications": []
+}
