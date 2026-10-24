@@ -24,8 +24,25 @@ connectDB().catch((err) => {
   console.error('[CRITICAL] MongoDB failed to initialize on startup:', err.message);
 });
 
+// Allowed CORS origins — supports multiple comma-separated URLs via CLIENT_URL
+const allowedOrigins = [
+  ...(process.env.CLIENT_URL || '').split(','),
+  process.env.CLIENT_URL_LOCAL,
+  'http://localhost:5173',
+].map((origin) => origin?.trim()).filter(Boolean);
+
 // Security & Parsing Middleware
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. server-to-server, curl, Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error(`CORS: Origin '${origin}' not allowed`));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
