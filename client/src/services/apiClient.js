@@ -36,7 +36,12 @@ export async function apiRequest(endpoint, options = {}) {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const url = endpoint.startsWith('http') ? endpoint : `/api${endpoint.startsWith('/') ? '' : '/'}${endpoint}`;
+  // In production (Vercel), VITE_API_BASE_URL points to the Render backend.
+  // In local dev, it's unset so we use relative /api/... paths proxied by Vite.
+  const base = import.meta.env.VITE_API_BASE_URL || '';
+  const url = endpoint.startsWith('http')
+    ? endpoint
+    : `${base}/api${endpoint.startsWith('/') ? '' : '/'}${endpoint}`;
 
   try {
     const response = await fetch(url, {

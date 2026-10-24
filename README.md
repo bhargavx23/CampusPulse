@@ -1,7 +1,7 @@
 # CampusPulse — Smart Campus Issue Management System
 
 > **StackMitra — Projects Made Simple.**  
-> *Enterprise-Grade Institutional Grievance Redressal, Maintenance Dispatch & Real-Time Redressal Platform.*
+> _Enterprise-Grade Institutional Grievance Redressal, Maintenance Dispatch & Real-Time Redressal Platform._
 
 [![MERN Stack](https://img.shields.io/badge/Stack-MERN-indigo.svg)](#-technology-stack)
 [![React 18](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-blue.svg)](#-technology-stack)
@@ -18,6 +18,7 @@
 **CampusPulse** is an institutional web platform engineered for modern universities, colleges, and educational campuses. It bridges the communication gap between students and campus administration by providing a transparent, auditable, and secure workflow for reporting, tracking, triaging, and remediating campus facilities grievances (infrastructure, electrical grids, water supply, Wi-Fi, classroom equipment, hostel amenities, and sanitation).
 
 Built with a production-grade separated architecture (`client/` and `server/`), CampusPulse features:
+
 - **Role-Based Workspaces**: Dedicated student grievance portals and chief administrative triage consoles.
 - **Cryptographic Security**: PBKDF2 password hashing (100,000 iterations), salt stretching, and JWT session versioning.
 - **Link-Free OTP Password Recovery**: Complete email verification via 6-digit random OTP codes with attempt limiting, 60s cooldowns, and single-use reset authorization tokens.
@@ -45,18 +46,21 @@ Built with a production-grade separated architecture (`client/` and `server/`), 
 ## ✨ Key Features
 
 ### 🎓 Student Workspace
+
 - **Grievance Filing**: Report campus issues with title, category, specific location, description, urgency level, and image attachments.
 - **Real-Time Audit Timeline**: Track every operational update (technician dispatch, status transition, findings) in chronological order.
 - **Live Notifications**: Instant in-app alerts when an administrator triages, updates, or resolves a filed issue.
 - **Student Profile**: Manage academic details (branch, year, roll number, hostel block, room number, emergency contacts).
 
 ### 🛠️ Administrative Operations
-- **Central Triage Table**: Search, filter, sort, and inspect university-wide grievances with tabbed workflow views (*Pending*, *In Progress*, *Resolved*, *Rejected*).
+
+- **Central Triage Table**: Search, filter, sort, and inspect university-wide grievances with tabbed workflow views (_Pending_, _In Progress_, _Resolved_, _Rejected_).
 - **Interactive Triage Modal**: Reassign maintenance departments, escalate priorities, post public status updates, and attach formal resolution notes.
 - **Executive Analytics Console**: Real-time resolution rates, category volume distributions, department workloads, and turnaround times.
 - **Verified Student Directory**: Complete institutional roster with enrollment IDs, branch distribution, and grievance submission histories.
 
 ### 🛡️ Enterprise Security Architecture
+
 - **PBKDF2 Password Protection**: Cryptographic password hashing using PBKDF2 with 100,000 iterations of SHA-512 and random 16-byte salts.
 - **JWT Session Versioning**: Each user has an atomic `tokenVersion`. Changing passwords automatically revokes all prior active sessions.
 - **Strict Role Locking**: Student registration cannot be manipulated via payload injection to acquire administrative access.
@@ -82,6 +86,7 @@ CampusPulse implements an **OTP-based password recovery architecture** that elim
 ```
 
 ### Security Safeguards
+
 1. **Registered Users Only**: Only registered accounts can initiate recovery. Nonexistent email requests return the same generic response to prevent account enumeration.
 2. **Cryptographic 6-Digit OTP**: Generated using `crypto.randomInt(100000, 1000000)`. Plaintext OTPs are never stored in the database.
 3. **SHA-256 Hashed Storage**: Only the cryptographic hash of the OTP is written to MongoDB.
@@ -97,6 +102,7 @@ CampusPulse implements an **OTP-based password recovery architecture** that elim
 ## 💻 Technology Stack
 
 ### Frontend Client
+
 - **Core Framework**: React 18 (SPA)
 - **Tooling & Bundler**: Vite 6 (Fast HMR, optimized production build)
 - **Styling**: Tailwind CSS 3.4 with custom design tokens
@@ -105,6 +111,7 @@ CampusPulse implements an **OTP-based password recovery architecture** that elim
 - **Architecture**: Modular layout wrappers, React Portals for modal overlays, contextual auth state
 
 ### Backend Server
+
 - **Runtime Environment**: Node.js (ES Modules)
 - **Web Framework**: Express 4 (REST API, structured controllers & routes)
 - **Database Engine**: MongoDB via Mongoose ODM
@@ -119,16 +126,16 @@ CampusPulse implements an **OTP-based password recovery architecture** that elim
 
 The application features a tailored institutional design language:
 
-| Design Token | Hex Code | Purpose |
-| :--- | :--- | :--- |
-| **Midnight Navy** | `#172554` | Primary brand foundation, high-contrast banners, sidebars |
-| **Deep Indigo** | `#3730A3` | Active navigation states, brand accents |
-| **Royal Indigo** | `#4F46E5` | Primary action buttons, active focus rings, badges |
-| **Workspace Mist** | `#F7F8FC` | Main background surface for low eyestrain |
-| **Subtle Sidebar** | `#F1F4FA` | Secondary navigation backdrops |
-| **Card White** | `#FFFFFF` | Primary elevated cards with subtle borders |
-| **Charcoal Primary**| `#172033` | Crisp headings and primary typography |
-| **Slate Secondary** | `#596579` | Descriptive text, labels, metadata |
+| Design Token         | Hex Code  | Purpose                                                   |
+| :------------------- | :-------- | :-------------------------------------------------------- |
+| **Midnight Navy**    | `#172554` | Primary brand foundation, high-contrast banners, sidebars |
+| **Deep Indigo**      | `#3730A3` | Active navigation states, brand accents                   |
+| **Royal Indigo**     | `#4F46E5` | Primary action buttons, active focus rings, badges        |
+| **Workspace Mist**   | `#F7F8FC` | Main background surface for low eyestrain                 |
+| **Subtle Sidebar**   | `#F1F4FA` | Secondary navigation backdrops                            |
+| **Card White**       | `#FFFFFF` | Primary elevated cards with subtle borders                |
+| **Charcoal Primary** | `#172033` | Crisp headings and primary typography                     |
+| **Slate Secondary**  | `#596579` | Descriptive text, labels, metadata                        |
 
 ---
 
@@ -184,6 +191,7 @@ CampusPulse/
 ## ⚡ Quick Start Guide
 
 ### Prerequisites
+
 - **Node.js**: `v18.0.0` or higher (`node -v`)
 - **npm**: `v9.0.0` or higher (`npm -v`)
 - **MongoDB**: Local MongoDB instance (`mongodb://localhost:27017/campuspulse`) or MongoDB Atlas URI
@@ -198,7 +206,7 @@ cd CampusPulse
 npm run install:all
 ```
 
-*(Alternatively, run `npm install` in root, `client/`, and `server/` individually).*
+_(Alternatively, run `npm install` in root, `client/`, and `server/` individually)._
 
 ### 2. Configure Environment Variables
 
@@ -218,11 +226,11 @@ npm run dev
 
 Both services will boot concurrently in one terminal window:
 
-| Service | Address | Description |
-| :--- | :--- | :--- |
-| **Frontend Client** | `http://localhost:5173` | React application with Vite HMR |
-| **Backend API** | `http://localhost:5000/api` | Express REST API server |
-| **Health Check** | `http://localhost:5000/api/health` | Service and MongoDB status |
+| Service             | Address                                            | Description                     |
+| :------------------ | :------------------------------------------------- | :------------------------------ |
+| **Frontend Client** | `http://localhost:5173`                            | React application with Vite HMR |
+| **Backend API**     | `https://campuspulse-1xno.onrender.com/api`        | Express REST API server         |
+| **Health Check**    | `https://campuspulse-1xno.onrender.com/api/health` | Service and MongoDB status      |
 
 ---
 
@@ -256,6 +264,7 @@ MAIL_FROM="CampusPulse Support <your-verified-sender@gmail.com>"
 ## 📧 Nodemailer SMTP Configuration
 
 ### Setting Up Gmail SMTP
+
 1. Enable **2-Step Verification** on your Google Account: [Google Security Settings](https://myaccount.google.com/security).
 2. Generate an **App Password**: [Google App Passwords](https://myaccount.google.com/apppasswords).
 3. Set the app name to `CampusPulse` and copy the 16-character password generated.
@@ -268,7 +277,9 @@ npm run verify:smtp
 ```
 
 ### Local Preview Mode (Zero-Config Testing)
+
 If `SMTP_USER` or `SMTP_PASS` are not set, CampusPulse automatically enters **Development Preview Mode**:
+
 - OTPs are generated and hashed normally.
 - The 6-digit OTP code is logged directly to the server console for rapid testing without needing live credentials.
 
@@ -277,37 +288,40 @@ If `SMTP_USER` or `SMTP_PASS` are not set, CampusPulse automatically enters **De
 ## 🔑 Default Credentials
 
 ### Administrator Account
+
 The chief administrator account is automatically initialized upon startup:
+
 - **Email:** `bhargavpasupuleti5@gmail.com`
 - **Password:** `123456`
 - **Role:** `admin` (Full triage privileges, university analytics, and department assignment)
 
 ### Student Accounts
+
 Students register directly via `/register` with their academic details (branch, year of study, section, and roll number). Newly created accounts are strictly assigned the `student` role.
 
 ---
 
 ## 🌐 REST API Reference
 
-| Method | Endpoint | Access Level | Description |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/health` | Public | System status & MongoDB health check |
-| `POST` | `/api/auth/register` | Public | Register a student account with academic records |
-| `POST` | `/api/auth/login` | Public | Authenticate user & return signed JWT |
-| `POST` | `/api/auth/forgot-password` | Public (Rate-Limited) | Request a 6-digit OTP to registered email |
-| `POST` | `/api/auth/resend-otp` | Public (Rate-Limited) | Resend OTP (enforces 60-second cooldown) |
-| `POST` | `/api/auth/verify-otp` | Public (Rate-Limited) | Verify 6-digit OTP & receive reset token |
-| `POST` | `/api/auth/reset-password` | Public (Rate-Limited) | Reset password with valid reset token |
-| `GET` | `/api/auth/me` | Authenticated | Fetch current user profile |
-| `GET` | `/api/complaints` | Authenticated | Retrieve grievances (role-scoped) |
-| `POST` | `/api/complaints` | Student | Submit a new grievance |
-| `GET` | `/api/complaints/:id` | Authenticated | Get grievance details & timeline |
-| `PUT` | `/api/complaints/:id/status`| Administrator | Update grievance status, priority, and department |
-| `GET` | `/api/complaints/admin/analytics` | Administrator | University grievance analytics |
-| `GET` | `/api/students` | Administrator | Verified student directory |
-| `GET` | `/api/notifications` | Authenticated | In-app user notifications |
+| Method | Endpoint                          | Access Level          | Description                                       |
+| :----- | :-------------------------------- | :-------------------- | :------------------------------------------------ |
+| `GET`  | `/api/health`                     | Public                | System status & MongoDB health check              |
+| `POST` | `/api/auth/register`              | Public                | Register a student account with academic records  |
+| `POST` | `/api/auth/login`                 | Public                | Authenticate user & return signed JWT             |
+| `POST` | `/api/auth/forgot-password`       | Public (Rate-Limited) | Request a 6-digit OTP to registered email         |
+| `POST` | `/api/auth/resend-otp`            | Public (Rate-Limited) | Resend OTP (enforces 60-second cooldown)          |
+| `POST` | `/api/auth/verify-otp`            | Public (Rate-Limited) | Verify 6-digit OTP & receive reset token          |
+| `POST` | `/api/auth/reset-password`        | Public (Rate-Limited) | Reset password with valid reset token             |
+| `GET`  | `/api/auth/me`                    | Authenticated         | Fetch current user profile                        |
+| `GET`  | `/api/complaints`                 | Authenticated         | Retrieve grievances (role-scoped)                 |
+| `POST` | `/api/complaints`                 | Student               | Submit a new grievance                            |
+| `GET`  | `/api/complaints/:id`             | Authenticated         | Get grievance details & timeline                  |
+| `PUT`  | `/api/complaints/:id/status`      | Administrator         | Update grievance status, priority, and department |
+| `GET`  | `/api/complaints/admin/analytics` | Administrator         | University grievance analytics                    |
+| `GET`  | `/api/students`                   | Administrator         | Verified student directory                        |
+| `GET`  | `/api/notifications`              | Authenticated         | In-app user notifications                         |
 
-*Full request/response schemas and examples are available in [`docs/API.md`](docs/API.md).*
+_Full request/response schemas and examples are available in [`docs/API.md`](docs/API.md)._
 
 ---
 

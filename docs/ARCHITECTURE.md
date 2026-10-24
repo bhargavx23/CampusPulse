@@ -4,7 +4,7 @@
 **Company:** StackMitra  
 **Tagline:** Projects Made Simple.  
 **Version:** 2.0.0 Production Architecture  
-**Author:** Full-Stack Architecture & Design Team  
+**Author:** Full-Stack Architecture & Design Team
 
 ---
 
@@ -13,6 +13,7 @@
 CampusPulse is an institutional grievance redressal and facilities management web application engineered on the **MERN** (MongoDB, Express.js, React, Node.js) technology stack. The platform bridges communication between university students and campus administration, providing real-time tracking, department dispatch triage, and auditable grievance history.
 
 ### Core Architectural Pillars
+
 - **Decoupled Architecture**: Clean separation between the React client (`client/`) and Express backend (`server/`).
 - **Concurrent Development**: Orchestrated local development via `concurrently`, enabling dual-process execution with single-command startup.
 - **Enterprise Design System**: Custom tokenized UI framework built on Tailwind CSS, Sora / DM Sans typography, and spring-physics micro-interactions.
@@ -102,27 +103,28 @@ Campuspulse/
 
 ## 3. Technology Stack & Component Rationale
 
-| Layer | Technology | Version | Rationale |
-| :--- | :--- | :--- | :--- |
-| **Frontend Framework** | React | `^18.3.1` | Declarative component model, stateful hooks, virtual DOM performance. |
-| **Build Tooling** | Vite | `^6.2.0` | Ultra-fast Hot Module Replacement (ESM-based) and optimized Rollup production builds. |
-| **Client Routing** | React Router DOM | `^6.30.0` | Nested routing, programmatic navigation, dynamic parameters, and declarative guards. |
-| **Styling Engine** | Tailwind CSS | `^3.4.17` | Utility-first CSS, custom design tokens, zero runtime overhead. |
-| **Iconography** | Lucide React | `^0.476.0` | Clean, accessible SVG icons with customizable stroke and sizes. |
-| **HTTP Transport** | Axios | `^1.8.1` | Promise-based HTTP client with request/response interceptors for Bearer auth tokens. |
-| **Server Runtime** | Node.js | `>= 18.0.0` | High-throughput asynchronous event loop with native ESM module support. |
-| **Web Server Framework**| Express.js | `^4.21.2` | Robust, minimalist HTTP routing and middleware framework. |
-| **Database Engine** | MongoDB | `>= 6.0` | Document-oriented JSON store with flexible schema adaptation and subdocuments. |
-| **Object Data Modeling**| Mongoose | `^8.10.1` | Strongly typed schema validation, indexes, and pre/post query hooks. |
-| **Session Security** | JSON Web Tokens (`jsonwebtoken`)| `^9.0.2` | Compact, stateless tokens signed with HMAC-SHA256 algorithm. |
-| **Password Security** | Node.js `crypto` (PBKDF2) | Native | Cryptographically secure pseudo-random salt + 10,000 hash iterations via SHA-512. |
-| **Process Manager** | Concurrently | `^9.1.2` | Single-command root execution of client and server processes in one terminal. |
+| Layer                    | Technology                       | Version     | Rationale                                                                             |
+| :----------------------- | :------------------------------- | :---------- | :------------------------------------------------------------------------------------ |
+| **Frontend Framework**   | React                            | `^18.3.1`   | Declarative component model, stateful hooks, virtual DOM performance.                 |
+| **Build Tooling**        | Vite                             | `^6.2.0`    | Ultra-fast Hot Module Replacement (ESM-based) and optimized Rollup production builds. |
+| **Client Routing**       | React Router DOM                 | `^6.30.0`   | Nested routing, programmatic navigation, dynamic parameters, and declarative guards.  |
+| **Styling Engine**       | Tailwind CSS                     | `^3.4.17`   | Utility-first CSS, custom design tokens, zero runtime overhead.                       |
+| **Iconography**          | Lucide React                     | `^0.476.0`  | Clean, accessible SVG icons with customizable stroke and sizes.                       |
+| **HTTP Transport**       | Axios                            | `^1.8.1`    | Promise-based HTTP client with request/response interceptors for Bearer auth tokens.  |
+| **Server Runtime**       | Node.js                          | `>= 18.0.0` | High-throughput asynchronous event loop with native ESM module support.               |
+| **Web Server Framework** | Express.js                       | `^4.21.2`   | Robust, minimalist HTTP routing and middleware framework.                             |
+| **Database Engine**      | MongoDB                          | `>= 6.0`    | Document-oriented JSON store with flexible schema adaptation and subdocuments.        |
+| **Object Data Modeling** | Mongoose                         | `^8.10.1`   | Strongly typed schema validation, indexes, and pre/post query hooks.                  |
+| **Session Security**     | JSON Web Tokens (`jsonwebtoken`) | `^9.0.2`    | Compact, stateless tokens signed with HMAC-SHA256 algorithm.                          |
+| **Password Security**    | Node.js `crypto` (PBKDF2)        | Native      | Cryptographically secure pseudo-random salt + 10,000 hash iterations via SHA-512.     |
+| **Process Manager**      | Concurrently                     | `^9.1.2`    | Single-command root execution of client and server processes in one terminal.         |
 
 ---
 
 ## 4. Master Design System & Motion Architecture
 
 ### 4.1 Master Color Palette
+
 The CampusPulse visual design system reflects an institutional SaaS aesthetic balancing high-contrast readability with deep sapphire tones:
 
 ```mermaid
@@ -149,7 +151,9 @@ graph TD
 ```
 
 ### 4.2 Motion Physics & Micro-interactions
+
 All interactive components implement tactile physics governed by custom cubic-bezier timing curves:
+
 - **Default Easing**: `cubic-bezier(0.16, 1, 0.3, 1)` (snappy entry with soft stabilization).
 - **Button Press**: `active:scale-[0.98]` tactile depression on mouse-down.
 - **Card Hover Elevation**: `-translate-y-0.5` with shadow expansion (`shadow-card` to `shadow-elevated`).
@@ -161,6 +165,7 @@ All interactive components implement tactile physics governed by custom cubic-be
 ## 5. Security Architecture & Data Flow
 
 ### 5.1 Request Pipeline & JWT Verification
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -171,7 +176,7 @@ sequenceDiagram
     participant DB as MongoDB (:27017)
 
     User->>Proxy: POST /api/auth/login {email, password}
-    Proxy->>API: Proxy forward to http://localhost:5000/api/auth/login
+    Proxy->>API: Proxy forward to https://campuspulse-1xno.onrender.com/api/auth/login
     API->>DB: User.findOne({ email: normalized })
     DB-->>API: User Document (including salt & passwordHash)
     API->>API: Verify PBKDF2 hash (10,000 iterations, SHA-512)
@@ -191,6 +196,7 @@ sequenceDiagram
 ```
 
 ### 5.2 Access Control Rules
+
 1. **Student Access**: Can file new complaints, view complaints associated with their email, track live timelines, and read personal in-app notifications.
 2. **Administrator Access**: Controlled exclusively by the authenticated account `bhargavpasupuleti5@gmail.com`. Admins can inspect the campus-wide queue, modify ticket status (`pending`, `in-progress`, `resolved`, `rejected`), assign maintenance departments, set priority levels, append resolution findings, and view institutional analytics.
 
@@ -199,46 +205,49 @@ sequenceDiagram
 ## 6. Database Schema Design
 
 ### 6.1 User Collection (`users`)
-- `fullName` *(String, Required)*: Full student/admin name.
-- `email` *(String, Required, Unique, Indexed, Lowercase)*: Institutional email address.
-- `passwordHash` *(String, Required)*: PBKDF2 hexadecimal hash.
-- `salt` *(String, Required)*: 16-byte random salt.
-- `role` *(String, Enum: ['student', 'admin'], Default: 'student')*: Role descriptor.
-- `branch` *(String)*: Academic department (e.g., Computer Science and Engineering).
-- `yearOfStudy` *(String)*: Current year (1st Year through 4th Year).
-- `section` *(String)*: Classroom section (e.g., 'A', 'B').
-- `rollNumber` *(String)*: College hall ticket / registration number.
-- `passwordResetTokenHash` *(String, Indexed, select: false)*: SHA-256 cryptographic hash of single-use reset token.
-- `passwordResetExpiresAt` *(Date, select: false)*: Token expiration timestamp (15-minute validity).
-- `tokenVersion` *(Number, Default: 0)*: Incremented upon password reset to revoke prior active JWT sessions.
-- `createdAt` / `updatedAt` *(Date, Automatic timestamps)*.
+
+- `fullName` _(String, Required)_: Full student/admin name.
+- `email` _(String, Required, Unique, Indexed, Lowercase)_: Institutional email address.
+- `passwordHash` _(String, Required)_: PBKDF2 hexadecimal hash.
+- `salt` _(String, Required)_: 16-byte random salt.
+- `role` _(String, Enum: ['student', 'admin'], Default: 'student')_: Role descriptor.
+- `branch` _(String)_: Academic department (e.g., Computer Science and Engineering).
+- `yearOfStudy` _(String)_: Current year (1st Year through 4th Year).
+- `section` _(String)_: Classroom section (e.g., 'A', 'B').
+- `rollNumber` _(String)_: College hall ticket / registration number.
+- `passwordResetTokenHash` _(String, Indexed, select: false)_: SHA-256 cryptographic hash of single-use reset token.
+- `passwordResetExpiresAt` _(Date, select: false)_: Token expiration timestamp (15-minute validity).
+- `tokenVersion` _(Number, Default: 0)_: Incremented upon password reset to revoke prior active JWT sessions.
+- `createdAt` / `updatedAt` _(Date, Automatic timestamps)_.
 
 ### 6.2 Complaint Collection (`complaints`)
-- `id` *(String, Unique, Indexed)*: Human-readable identifier format `#CP-XXXX`.
-- `title` *(String, Required)*: Grievance headline.
-- `description` *(String, Required)*: Detailed description of the problem.
-- `category` *(String, Required)*: Department domain (Hostel, Electrical, Network, etc.).
-- `location` *(String, Required)*: Physical campus location or room number.
-- `status` *(String, Enum: ['pending', 'in-progress', 'resolved', 'rejected'], Default: 'pending')*.
-- `priority` *(String, Enum: ['Low', 'Medium', 'High', 'Urgent'], Default: 'Medium')*.
-- `studentName` *(String, Required)*: Submitting student name.
-- `studentEmail` *(String, Required, Indexed)*: Submitting student email.
-- `studentId` *(String)*: Student roll number or ID.
-- `assignedTo` *(String, Default: 'Awaiting Department Assignment')*: Maintenance crew assigned.
-- `resolutionNote` *(String)*: Formal closing remarks.
-- `timeline` *(Array of Subdocuments)*:
-  - `status` *(String)*
-  - `note` *(String)*
-  - `actor` *(String)*
-  - `date` *(Date)*
-- `createdAt` / `updatedAt` *(Date, Automatic timestamps)*.
+
+- `id` _(String, Unique, Indexed)_: Human-readable identifier format `#CP-XXXX`.
+- `title` _(String, Required)_: Grievance headline.
+- `description` _(String, Required)_: Detailed description of the problem.
+- `category` _(String, Required)_: Department domain (Hostel, Electrical, Network, etc.).
+- `location` _(String, Required)_: Physical campus location or room number.
+- `status` _(String, Enum: ['pending', 'in-progress', 'resolved', 'rejected'], Default: 'pending')_.
+- `priority` _(String, Enum: ['Low', 'Medium', 'High', 'Urgent'], Default: 'Medium')_.
+- `studentName` _(String, Required)_: Submitting student name.
+- `studentEmail` _(String, Required, Indexed)_: Submitting student email.
+- `studentId` _(String)_: Student roll number or ID.
+- `assignedTo` _(String, Default: 'Awaiting Department Assignment')_: Maintenance crew assigned.
+- `resolutionNote` _(String)_: Formal closing remarks.
+- `timeline` _(Array of Subdocuments)_:
+  - `status` _(String)_
+  - `note` _(String)_
+  - `actor` _(String)_
+  - `date` _(Date)_
+- `createdAt` / `updatedAt` _(Date, Automatic timestamps)_.
 
 ### 6.3 Notification Collection (`notifications`)
-- `userId` *(ObjectId, Ref: 'User', Indexed)*: Target student recipient.
-- `complaintId` *(String, Required)*: Referenced grievance ID.
-- `message` *(String, Required)*: Notification text.
-- `read` *(Boolean, Default: false)*: Read/unread state.
-- `createdAt` *(Date, Automatic timestamp)*.
+
+- `userId` _(ObjectId, Ref: 'User', Indexed)_: Target student recipient.
+- `complaintId` _(String, Required)_: Referenced grievance ID.
+- `message` _(String, Required)_: Notification text.
+- `read` _(Boolean, Default: false)_: Read/unread state.
+- `createdAt` _(Date, Automatic timestamp)_.
 
 ---
 
