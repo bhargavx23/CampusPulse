@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 export const COMPLAINT_CATEGORIES = [
+  // Keep the original values so existing complaints and deployed clients remain valid.
   'Electricity',
   'Water Supply',
   'Classroom',
@@ -9,6 +10,10 @@ export const COMPLAINT_CATEGORIES = [
   'Library',
   'Security',
   'Other',
+  // Values already offered by the deployed student and admin interfaces.
+  'Infrastructure',
+  'Internet',
+  'Cleanliness',
 ];
 
 export const COMPLAINT_PRIORITIES = ['Low', 'Medium', 'High', 'Urgent'];
