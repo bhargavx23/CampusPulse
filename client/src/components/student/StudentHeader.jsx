@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import { notificationService } from '../../services/notificationService';
 import { Button } from '../ui';
 
-export function StudentHeader({ onMenuClick }) {
+export function StudentHeader({ onMenuClick, onSidebarToggle, sidebarCollapsed }) {
   const { user } = useAuth();
   const location = useLocation();
 
@@ -38,6 +38,15 @@ export function StudentHeader({ onMenuClick }) {
           >
             <Menu className="w-5 h-5" />
           </button>
+          <button
+            type="button"
+            onClick={onSidebarToggle}
+            className="hidden lg:inline-flex p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 transition-colors"
+            aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            aria-expanded={!sidebarCollapsed}
+          >
+            <Menu className="w-5 h-5" />
+          </button>
 
           <div>
             <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-medium text-slate-400">
@@ -45,7 +54,7 @@ export function StudentHeader({ onMenuClick }) {
               <ChevronRight className="w-3 h-3" />
               <span>Student</span>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-[#4F46E5] font-semibold">{breadcrumb}</span>
+              <span className="text-[#48677A] font-semibold">{breadcrumb}</span>
             </div>
             <h1 className="font-sora text-lg sm:text-xl font-bold text-workspace-textPrimary leading-tight">
               {title}
@@ -62,7 +71,7 @@ export function StudentHeader({ onMenuClick }) {
                 variant="primary"
                 size="sm"
                 leftIcon={<PlusCircle className="w-4 h-4" />}
-                className="bg-[#4F46E5] hover:bg-indigo-700 shadow-sm"
+                className="bg-[#48677A] hover:bg-primary-700 shadow-sm"
               >
                 Submit Issue
               </Button>
@@ -88,7 +97,7 @@ export function StudentHeader({ onMenuClick }) {
               className="flex items-center gap-2.5 pl-1.5 pr-2 py-1 rounded-xl hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
               aria-label="View student profile"
             >
-              <div className="w-8 h-8 rounded-xl bg-[#EEF0FF] text-[#4F46E5] font-bold text-xs flex items-center justify-center border border-indigo-100">
+              <div className="w-8 h-8 rounded-xl bg-[#EAF1F4] text-[#48677A] font-bold text-xs flex items-center justify-center border border-primary-100">
                 {user.name.charAt(0)}
               </div>
               <div className="hidden md:block text-left">

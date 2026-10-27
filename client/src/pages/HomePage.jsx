@@ -35,21 +35,21 @@ export function HomePage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         <Card hoverEffect>
           <CardContent className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-primary-600 flex items-center justify-center border border-blue-100">
+            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center border border-primary-100">
               <Palette className="w-5 h-5" aria-hidden="true" />
             </div>
             <h3 className="font-manrope text-lg font-semibold text-slate-900">
               Refined Color System
             </h3>
             <p className="text-sm text-slate-500 leading-relaxed font-sans">
-              Strictly light, professional, and accessible. Built with Primary Blue (#2563EB) accents, soft-slate backgrounds (#F8FAFC), and subtle borders (#E2E8F0).
+              Strictly light, professional, and accessible. Built with steel blue (#48677A) accents, soft neutral backgrounds (#F6F7F5), and subtle borders (#E3E8E6).
             </p>
           </CardContent>
         </Card>
 
         <Card hoverEffect>
           <CardContent className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100">
+            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center border border-primary-100">
               <Type className="w-5 h-5" aria-hidden="true" />
             </div>
             <h3 className="font-manrope text-lg font-semibold text-slate-900">
@@ -94,7 +94,7 @@ export function HomePage() {
               {[
                 { title: 'Project Structure & Tooling', desc: 'Vite 6, React 18, React Router v6, Tailwind CSS' },
                 { title: 'Typography System', desc: 'Google Fonts: Space Grotesk, Sora, Manrope, DM Sans with fallbacks' },
-                { title: 'Design Tokens & Light Palette', desc: 'Primary blue #2563EB, crisp borders, no dark or neon styling' },
+                { title: 'Design Tokens & Light Palette', desc: 'Steel blue #48677A, soft neutral surfaces, crisp borders' },
                 { title: '10 Core Reusable UI Components', desc: 'Button, Input, Select, Card, Badge, PageContainer, Loader, EmptyState, ErrorMessage, PageHeading' },
                 { title: 'Application Shell & Responsive Nav', desc: 'Header, brand icon, mobile toggle, semantic layout, StackMitra footer' },
                 { title: 'Independent Backend Scaffolding', desc: 'Directory structure prepared for future Node/Express/MongoDB' },

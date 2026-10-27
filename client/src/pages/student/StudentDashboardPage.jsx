@@ -125,7 +125,7 @@ export function StudentDashboardPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <StatCard label="Total Filed" value={stats.total} icon={FileText} colorClass="text-slate-600" bgClass="bg-slate-100" subtext="Lifetime campus tickets" />
         <StatCard label="Pending" value={stats.pending} icon={Clock} colorClass="text-amber-700" bgClass="bg-amber-50" subtext="Awaiting department review" />
-        <StatCard label="In Progress" value={stats.inProgress} icon={RefreshCw} colorClass="text-blue-700" bgClass="bg-blue-50" subtext="Technicians assigned" />
+        <StatCard label="In Progress" value={stats.inProgress} icon={RefreshCw} colorClass="text-primary-700" bgClass="bg-primary-50" subtext="Technicians assigned" />
         <StatCard label="Resolved" value={stats.resolved} icon={CheckCircle2} colorClass="text-emerald-700" bgClass="bg-emerald-50" subtext="Successfully completed" />
       </div>
 

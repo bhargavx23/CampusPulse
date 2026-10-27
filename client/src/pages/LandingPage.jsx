@@ -19,8 +19,12 @@ import {
   Droplets
 } from 'lucide-react';
 import { Button, Card, CardContent, Badge } from '../components/ui';
+import { useAuth } from '../context/AuthContext';
 
 export function LandingPage() {
+  const { user, isAuthenticated } = useAuth();
+  const workspacePath = user?.role === 'admin' ? '/admin/dashboard' : '/student/dashboard';
+
   useEffect(() => {
     const revealItems = document.querySelectorAll('.landing-section, .feature-grid > div, .product-preview');
     if (!('IntersectionObserver' in window)) {
@@ -68,14 +72,14 @@ export function LandingPage() {
 
             {/* Call To Action Button Group */}
             <div className="hero-actions pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-              <Link to="/register" className="w-full sm:w-auto">
+              <Link to={isAuthenticated ? workspacePath : '/register'} className="w-full sm:w-auto">
                 <Button
                   variant="primary"
                   size="lg"
                   className="w-full sm:w-auto px-7 shadow-sm"
                   rightIcon={<ArrowRight className="w-4 h-4" />}
                 >
-                  Get Started
+                  {isAuthenticated ? 'Open Dashboard' : 'Get Started'}
                 </Button>
               </Link>
               <a href="#features" className="w-full sm:w-auto">
@@ -112,7 +116,7 @@ export function LandingPage() {
                 {/* Search & Filter Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200/80">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 text-primary-600 flex items-center justify-center font-bold text-xs">
+                    <div className="w-9 h-9 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center font-bold text-xs">
                       CP
                     </div>
                     <div>
@@ -166,7 +170,7 @@ export function LandingPage() {
                   {/* Row 2 */}
                   <div className="preview-row p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-start gap-3.5">
-                      <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 shrink-0 mt-0.5">
+                      <div className="p-2.5 rounded-xl bg-primary-50 text-primary-600 border border-primary-100 shrink-0 mt-0.5">
                         <Droplets className="w-4 h-4" />
                       </div>
                       <div className="space-y-1">
@@ -242,7 +246,7 @@ export function LandingPage() {
             {/* Feature 1 */}
             <Card hoverEffect>
               <CardContent className="space-y-3.5">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 text-primary-600 flex items-center justify-center border border-blue-100">
+                <div className="w-11 h-11 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center border border-primary-100">
                   <FileText className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-manrope text-base sm:text-lg font-semibold text-slate-900">
@@ -257,7 +261,7 @@ export function LandingPage() {
             {/* Feature 2 */}
             <Card hoverEffect>
               <CardContent className="space-y-3.5">
-                <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100">
+                <div className="w-11 h-11 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center border border-primary-100">
                   <Clock className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-manrope text-base sm:text-lg font-semibold text-slate-900">
@@ -357,7 +361,7 @@ export function LandingPage() {
                   <span className="font-display text-3xl font-bold text-primary-600">
                     01
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-primary-600 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center">
                     <FileText className="w-4 h-4" />
                   </div>
                 </div>
@@ -380,7 +384,7 @@ export function LandingPage() {
                   <span className="font-display text-3xl font-bold text-primary-600">
                     02
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center">
                     <Clock className="w-4 h-4" />
                   </div>
                 </div>
@@ -443,7 +447,7 @@ export function LandingPage() {
             {/* Student Role */}
             <div className="rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 sm:p-8 shadow-soft flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100/70 text-primary-600 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-primary-100/70 text-primary-600 flex items-center justify-center">
                   <GraduationCap className="w-6 h-6" />
                 </div>
                 <h3 className="font-sora text-xl font-bold text-slate-900">
@@ -470,9 +474,9 @@ export function LandingPage() {
               </div>
 
               <div className="mt-8 pt-4 border-t border-slate-200/80">
-                <Link to="/register">
+                <Link to={isAuthenticated ? workspacePath : '/register'}>
                   <Button variant="outline" size="sm" className="w-full bg-white">
-                    Sign Up as Student
+                    {isAuthenticated ? 'Open Dashboard' : 'Sign Up as Student'}
                   </Button>
                 </Link>
               </div>
@@ -481,7 +485,7 @@ export function LandingPage() {
             {/* Administrator Role */}
             <div className="rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 sm:p-8 shadow-soft flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-100/70 text-indigo-700 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-primary-100/70 text-primary-700 flex items-center justify-center">
                   <Shield className="w-6 h-6" />
                 </div>
                 <h3 className="font-sora text-xl font-bold text-slate-900">
@@ -493,24 +497,26 @@ export function LandingPage() {
 
                 <ul className="space-y-3 pt-2 text-sm text-slate-700">
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-primary-600 shrink-0 mt-0.5" />
                     <span><strong>Review incoming complaints:</strong> Triage and inspect complaints by department.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-primary-600 shrink-0 mt-0.5" />
                     <span><strong>Manage complaint status:</strong> Transition tickets through active operational stages.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-primary-600 shrink-0 mt-0.5" />
                     <span><strong>Monitor complaint activity:</strong> Analyze department resolution metrics and trends.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="mt-8 pt-4 border-t border-slate-200/80">
-                <Link to="/login">
+                <Link to={isAuthenticated ? workspacePath : '/login'}>
                   <Button variant="primary" size="sm" className="w-full">
-                    Admin Portal Sign In
+                    {isAuthenticated
+                      ? user?.role === 'admin' ? 'Open Admin Console' : 'Open Student Dashboard'
+                      : 'Admin Portal Sign In'}
                   </Button>
                 </Link>
               </div>
@@ -538,23 +544,23 @@ export function LandingPage() {
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link to="/register" className="w-full sm:w-auto">
+              <Link to={isAuthenticated ? workspacePath : '/register'} className="w-full sm:w-auto">
                 <Button
                   variant="primary"
                   size="lg"
                   className="w-full sm:w-auto px-8"
                   rightIcon={<ArrowRight className="w-4 h-4" />}
                 >
-                  Get Started
+                  {isAuthenticated ? 'Open Dashboard' : 'Get Started'}
                 </Button>
               </Link>
-              <Link to="/login" className="w-full sm:w-auto">
+              <Link to={isAuthenticated ? workspacePath : '/login'} className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"
                   className="w-full sm:w-auto px-8"
                 >
-                  Sign In to Account
+                  {isAuthenticated ? 'Open your Dashboard' : 'Sign In to Account'}
                 </Button>
               </Link>
             </div>

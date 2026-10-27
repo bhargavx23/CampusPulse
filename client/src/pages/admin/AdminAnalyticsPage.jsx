@@ -44,12 +44,12 @@ export function AdminAnalyticsPage() {
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E1E4EB]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E3E8E6]">
         <div>
-          <h1 className="font-sora text-2xl font-bold text-[#202638]">
+          <h1 className="font-sora text-2xl font-bold text-[#202B33]">
             Campus Redressal Intelligence & Analytics
           </h1>
-          <p className="font-sans text-xs sm:text-sm text-[#687084] mt-0.5">
+          <p className="font-sans text-xs sm:text-sm text-[#5D6B73] mt-0.5">
             Operational performance indicators, department resolution timelines, and category volume metrics.
           </p>
         </div>
@@ -71,7 +71,7 @@ export function AdminAnalyticsPage() {
       {/* 1. Core KPIs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Resolution Rate */}
-        <div className="rounded-2xl bg-white border border-[#E1E4EB] p-5 shadow-xs">
+        <div className="rounded-2xl bg-white border border-[#E3E8E6] p-5 shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#287C78]">
               Resolution Rate
@@ -83,31 +83,31 @@ export function AdminAnalyticsPage() {
           <div className="font-sora text-3xl font-bold text-[#287C78]">
             {analytics.resolutionRate}%
           </div>
-          <p className="text-[11px] text-[#687084] mt-1">
+          <p className="text-[11px] text-[#5D6B73] mt-1">
             {analytics.resolved} of {analytics.total} grievances closed
           </p>
         </div>
 
         {/* Avg Resolution Speed */}
-        <div className="rounded-2xl bg-white border border-[#E1E4EB] p-5 shadow-xs">
+        <div className="rounded-2xl bg-white border border-[#E3E8E6] p-5 shadow-xs">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#4F46E5]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#48677A]">
               Avg. Turnaround
             </span>
-            <div className="w-8 h-8 rounded-lg bg-[#EEF0FF] text-[#4F46E5] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#EAF1F4] text-[#48677A] flex items-center justify-center">
               <Clock className="w-4 h-4" />
             </div>
           </div>
-          <div className="font-sora text-3xl font-bold text-[#4F46E5]">
+          <div className="font-sora text-3xl font-bold text-[#48677A]">
             ~18.5 hrs
           </div>
-          <p className="text-[11px] text-[#687084] mt-1">
+          <p className="text-[11px] text-[#5D6B73] mt-1">
             From submission to resolution
           </p>
         </div>
 
         {/* Active Backlog */}
-        <div className="rounded-2xl bg-white border border-[#E1E4EB] p-5 shadow-xs">
+        <div className="rounded-2xl bg-white border border-[#E3E8E6] p-5 shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B7791F]">
               Active Backlog
@@ -119,13 +119,13 @@ export function AdminAnalyticsPage() {
           <div className="font-sora text-3xl font-bold text-[#B7791F]">
             {analytics.pending + analytics.inProgress}
           </div>
-          <p className="text-[11px] text-[#687084] mt-1">
+          <p className="text-[11px] text-[#5D6B73] mt-1">
             {analytics.pending} pending • {analytics.inProgress} in progress
           </p>
         </div>
 
         {/* Urgent Critical Attention */}
-        <div className="rounded-2xl bg-white border border-[#E1E4EB] p-5 shadow-xs">
+        <div className="rounded-2xl bg-white border border-[#E3E8E6] p-5 shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#DC2626]">
               Urgent Safety Flags
@@ -146,9 +146,9 @@ export function AdminAnalyticsPage() {
       {/* 2. Visual Analytics Sections */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Department / Category Breakdown */}
-        <Card className="border-[#E1E4EB] shadow-xs bg-white">
+        <Card className="border-[#E3E8E6] shadow-xs bg-white">
           <CardHeader>
-            <CardTitle className="text-base font-bold text-[#202638]">
+            <CardTitle className="text-base font-bold text-[#202B33]">
               Departmental Issue Volume
             </CardTitle>
             <CardDescription>
@@ -157,19 +157,19 @@ export function AdminAnalyticsPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {(analytics?.categoryStats || []).length === 0 ? (
-              <p className="text-xs text-[#8B92A3]">No complaints registered yet.</p>
+              <p className="text-xs text-[#87939A]">No complaints registered yet.</p>
             ) : (
               (analytics?.categoryStats || []).map((cat) => (
                 <div key={cat.category} className="space-y-1.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-[#202638]">{cat.category}</span>
-                    <span className="font-mono text-[#687084]">
+                    <span className="font-semibold text-[#202B33]">{cat.category}</span>
+                    <span className="font-mono text-[#5D6B73]">
                       {cat.count} issues ({cat.percentage}%)
                     </span>
                   </div>
-                  <div className="w-full h-2 rounded-full bg-[#F0F1F5] overflow-hidden">
+                  <div className="w-full h-2 rounded-full bg-[#EEF1EF] overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-[#4F46E5] transition-all duration-500 ease-out"
+                      className="h-full rounded-full bg-[#48677A] transition-all duration-500 ease-out"
                       style={{ width: `${Math.max(cat.percentage, 3)}%` }}
                     />
                   </div>
@@ -180,9 +180,9 @@ export function AdminAnalyticsPage() {
         </Card>
 
         {/* Maintenance Dispatch Distribution */}
-        <Card className="border-[#E1E4EB] shadow-xs bg-white">
+        <Card className="border-[#E3E8E6] shadow-xs bg-white">
           <CardHeader>
-            <CardTitle className="text-base font-bold text-[#202638]">
+            <CardTitle className="text-base font-bold text-[#202B33]">
               Active Departmental Dispatch Assignments
             </CardTitle>
             <CardDescription>
@@ -191,18 +191,18 @@ export function AdminAnalyticsPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {Object.keys(analytics?.departmentMap || {}).length === 0 ? (
-              <p className="text-xs text-[#8B92A3]">No assigned departments recorded.</p>
+              <p className="text-xs text-[#87939A]">No assigned departments recorded.</p>
             ) : (
               Object.entries(analytics?.departmentMap || {}).map(([dept, count]) => (
                 <div
                   key={dept}
-                  className="p-3.5 rounded-xl bg-[#F0F1F5] border border-[#E1E4EB] flex items-center justify-between text-xs"
+                  className="p-3.5 rounded-xl bg-[#EEF1EF] border border-[#E3E8E6] flex items-center justify-between text-xs"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Building className="w-4 h-4 text-[#4F46E5]" />
-                    <span className="font-semibold text-[#202638]">{dept}</span>
+                    <Building className="w-4 h-4 text-[#48677A]" />
+                    <span className="font-semibold text-[#202B33]">{dept}</span>
                   </div>
-                  <span className="font-mono font-bold text-xs text-[#4F46E5] bg-white px-2.5 py-1 rounded-lg border border-[#E1E4EB] shadow-xs">
+                  <span className="font-mono font-bold text-xs text-[#48677A] bg-white px-2.5 py-1 rounded-lg border border-[#E3E8E6] shadow-xs">
                     {count} tickets
                   </span>
                 </div>

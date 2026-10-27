@@ -18,7 +18,7 @@ export function CampusEmblem({ size = 36, className = '' }) {
       aria-hidden="true"
     >
       {/* Base container badge: Midnight Navy */}
-      <rect width="36" height="36" rx="10" fill="#172554" />
+      <rect width="36" height="36" rx="10" fill="#203540" />
 
       {/* Institutional Pediment (Roof triangle) */}
       <path
@@ -41,7 +41,7 @@ export function CampusEmblem({ size = 36, className = '' }) {
       {/* Vital Pulse Accent (Royal Indigo / Bright Indigo dynamic line) */}
       <path
         d="M7 28H14.5L16.2 25.5L18 29.5L19.8 26.5L21.2 28H29"
-        stroke="#6366F1"
+        stroke="#5B7D90"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -76,11 +76,11 @@ export function Logo({
 
       {!collapsed && (
         <div className="flex flex-col leading-none">
-          <span className={`font-display font-bold ${currentSize.text} tracking-tight ${isLight ? 'text-white' : 'text-[#172033]'}`}>
-            Campus<span className="text-[#4F46E5]">Pulse</span>
+          <span className={`font-display font-bold ${currentSize.text} tracking-tight ${isLight ? 'text-white' : 'text-[#202B33]'}`}>
+            Campus<span className="text-[#48677A]">Pulse</span>
           </span>
           {showSubtitle && (
-            <span className={`font-sans font-semibold tracking-wider uppercase mt-1 ${currentSize.sub} ${isLight ? 'text-slate-300' : 'text-[#8993A5]'}`}>
+            <span className={`font-sans font-semibold tracking-wider uppercase mt-1 ${currentSize.sub} ${isLight ? 'text-slate-300' : 'text-[#87939A]'}`}>
               {subtitle}
             </span>
           )}
@@ -94,7 +94,7 @@ export function Logo({
       <Link
         to={to}
         onClick={onClick}
-        className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded-xl p-0.5 inline-block"
+        className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48677A] rounded-xl p-0.5 inline-block"
         aria-label="CampusPulse Home"
       >
         {content}

@@ -255,8 +255,8 @@ export function ForgotPasswordPage() {
         {step < 4 && (
           <div className="flex items-center justify-center gap-2">
             <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 1 ? 'w-8 bg-brand-indigo' : 'w-4 bg-brand-indigo/40'}`} />
-            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 2 ? 'w-8 bg-brand-indigo' : step > 2 ? 'w-4 bg-brand-indigo/40' : 'w-4 bg-[#E1E4EB]'}`} />
-            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 3 ? 'w-8 bg-brand-indigo' : 'w-4 bg-[#E1E4EB]'}`} />
+            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 2 ? 'w-8 bg-brand-indigo' : step > 2 ? 'w-4 bg-brand-indigo/40' : 'w-4 bg-[#E3E8E6]'}`} />
+            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 3 ? 'w-8 bg-brand-indigo' : 'w-4 bg-[#E3E8E6]'}`} />
           </div>
         )}
 
@@ -356,7 +356,7 @@ export function ForgotPasswordPage() {
                         className={`w-11 h-12 sm:w-12 sm:h-14 text-center font-mono text-xl font-bold rounded-xl border transition-all focus:outline-none ${
                           digit
                             ? 'border-brand-indigo bg-brand-soft/40 text-brand-indigo shadow-xs'
-                            : 'border-[#E1E4EB] bg-[#FAF9F6] text-content-primary focus:border-brand-indigo focus:bg-white focus:ring-4 focus:ring-indigo-500/10'
+                            : 'border-[#E3E8E6] bg-[#F6F7F5] text-content-primary focus:border-brand-indigo focus:bg-white focus:ring-4 focus:ring-primary-500/10'
                         }`}
                         aria-label={`Digit ${idx + 1}`}
                       />

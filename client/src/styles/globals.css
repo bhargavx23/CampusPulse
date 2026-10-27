@@ -9,8 +9,8 @@
   --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
   /* Primary Brand Tokens */
-  --brand-navy: #172554;
-  --brand-deep: #3730A3;
+  --brand-navy: #203540;
+  --brand-deep: #365363;
   --brand-indigo: #48677A;
   --brand-bright: #5B7D90;
   --brand-soft: #EAF1F4;
@@ -21,7 +21,7 @@
   --surface-secondary: #EEF1EF;
   --surface-card: #FFFFFF;
   --surface-subtle: #F2F5F4;
-  --surface-dark: #172554;
+  --surface-dark: #203540;
 
   /* Typography Text Tokens */
   --text-primary: #202B33;
@@ -36,8 +36,8 @@
   /* Coordinated Status Tokens */
   --status-pending: #D97706;
   --status-pending-bg: #FFF4DB;
-  --status-in-progress: #4F46E5;
-  --status-in-progress-bg: #EEF2FF;
+  --status-in-progress: #48677A;
+  --status-in-progress-bg: #EAF1F4;
   --status-resolved: #0F9D8A;
   --status-resolved-bg: #E6F7F3;
   --status-rejected: #E11D48;
@@ -119,16 +119,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F4FA;
+  background: #EEF1EF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D5DCE8;
+  background: #D2DAD6;
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8993A5;
+  background: #87939A;
 }
 
 /* Advanced Motion Animations */
@@ -216,7 +216,7 @@
 .card-interactive:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(23, 37, 84, 0.09);
-  border-color: #D5DCE8;
+  border-color: #D2DAD6;
 }
 
 /* Interactive Button Motion */
@@ -349,4 +349,34 @@ button:not(:disabled):active { transform: translateY(0) scale(.985); }
 @media (prefers-reduced-motion: reduce) {
   .page-enter, .hero-eyebrow, .hero-title, .hero-actions { animation: none; }
   .landing-section, .feature-grid > div, .product-preview { opacity: 1; transform: none; transition: none; }
+}
+
+/* Keep content inside narrow viewports and let long user supplied values wrap. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { width: 100%; min-width: 320px; }
+body { overflow-x: clip; }
+img, video, canvas, svg { max-width: 100%; }
+pre, code { overflow-wrap: anywhere; }
+
+/* Flex and grid children otherwise keep their intrinsic width and push pages out. */
+:where(.flex, .inline-flex, .grid) > * { min-width: 0; }
+main, main > *, main [class*="grid"], main [class*="flex"] { min-width: 0; }
+main p, main h1, main h2, main h3, main h4, main td, main th,
+main label, main a, main span { overflow-wrap: anywhere; }
+main table { max-width: 100%; }
+main [class*="overflow-x-auto"] { max-width: 100%; overscroll-behavior-x: contain; }
+
+@media (max-width: 640px) {
+  main { padding-left: 1rem; padding-right: 1rem; }
+  header .flex { min-width: 0; }
+  header h1, header p, header span { overflow-wrap: anywhere; }
+  main img { height: auto; }
+  main button, main a[role="button"] { max-width: 100%; }
+  .product-preview { transform: none; }
+  .landing-hero::before, .landing-hero::after { opacity: .45; }
+}
+
+@media (max-width: 380px) {
+  main { padding-left: .75rem; padding-right: .75rem; }
+  h1, .h1 { font-size: clamp(1.5rem, 8vw, 2rem); }
 }

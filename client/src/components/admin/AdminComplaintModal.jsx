@@ -166,22 +166,22 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
-        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-modal border border-[#E1E4EB] flex flex-col max-h-[90vh] overflow-hidden z-10 animate-modal-in"
+        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-modal border border-[#E3E8E6] flex flex-col max-h-[90vh] overflow-hidden z-10 animate-modal-in"
       >
         {/* Header - Pinned at top */}
-        <div className="shrink-0 px-6 py-4 border-b border-[#E1E4EB] bg-[#FAF9F6] flex items-center justify-between">
+        <div className="shrink-0 px-6 py-4 border-b border-[#E3E8E6] bg-[#F6F7F5] flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-[#EEF2FF] text-[#4F46E5] border border-indigo-200">
+            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-[#EAF1F4] text-[#48677A] border border-primary-200">
               {complaint.id}
             </span>
-            <h2 id="modal-title" className="font-display text-base font-bold text-[#202638]">
+            <h2 id="modal-title" className="font-display text-base font-bold text-[#202B33]">
               Administrative Grievance Triage
             </h2>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#687084] hover:text-[#202638] hover:bg-[#E1E4EB]/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer"
+            className="p-1.5 rounded-lg text-[#5D6B73] hover:text-[#202B33] hover:bg-[#E3E8E6]/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 cursor-pointer"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -193,25 +193,25 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
           {/* Scrollable Content Body */}
           <div className="flex-1 overflow-y-auto p-6 space-y-5">
             {/* Complaint Summary Box */}
-            <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#E1E4EB] space-y-2">
-              <h3 className="font-display text-sm font-bold text-[#202638]">
+            <div className="p-4 rounded-xl bg-[#F6F7F5] border border-[#E3E8E6] space-y-2">
+              <h3 className="font-display text-sm font-bold text-[#202B33]">
                 {complaint.title}
               </h3>
-              <p className="text-xs text-[#687084] leading-relaxed">
+              <p className="text-xs text-[#5D6B73] leading-relaxed">
                 {complaint.description}
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-[#687084]">
-                <span className="flex items-center gap-1 font-medium text-[#202638]">
-                  <User className="w-3.5 h-3.5 text-[#4F46E5]" />
+              <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-[#5D6B73]">
+                <span className="flex items-center gap-1 font-medium text-[#202B33]">
+                  <User className="w-3.5 h-3.5 text-[#48677A]" />
                   {complaint.studentName} ({complaint.studentId || complaint.studentEmail})
                 </span>
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#8B92A3]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#87939A]" />
                   {complaint.location}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Tag className="w-3.5 h-3.5 text-[#8B92A3]" />
+                  <Tag className="w-3.5 h-3.5 text-[#87939A]" />
                   {complaint.category}
                 </span>
               </div>
@@ -220,7 +220,7 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
             {/* Evidence Image (if available) */}
             {evidenceImage && (
               <div className="space-y-2">
-                <p className="text-xs font-semibold text-[#202638]">Photo Evidence</p>
+                <p className="text-xs font-semibold text-[#202B33]">Photo Evidence</p>
                 <div
                   className="relative rounded-xl overflow-hidden border border-slate-200 cursor-pointer group"
                   onClick={() => setEvidenceLightbox(true)}
@@ -294,7 +294,7 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
 
             {/* Administrative / Resolution Note */}
             <div>
-              <label htmlFor="modal-note" className="text-xs font-semibold text-[#202638] block mb-1">
+              <label htmlFor="modal-note" className="text-xs font-semibold text-[#202B33] block mb-1">
                 {status === 'resolved'
                   ? 'Official Resolution Findings (Required for closing)'
                   : 'Administrative Action Note (Added to timeline & notified to student)'}
@@ -309,13 +309,13 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
                     ? 'e.g. Capacitor replaced, breaker load recalibrated. Operational check verified with department lab in-charge.'
                     : 'e.g. Technician dispatched for on-site inspection. Parts scheduled for installation at 2:00 PM.'
                 }
-                className="w-full text-xs rounded-xl border border-[#E1E4EB] p-3 text-[#202638] placeholder-[#8B92A3] focus:outline-none focus:border-[#4F46E5] focus:ring-4 focus:ring-indigo-500/10 transition-all resize-y"
+                className="w-full text-xs rounded-xl border border-[#E3E8E6] p-3 text-[#202B33] placeholder-[#87939A] focus:outline-none focus:border-[#48677A] focus:ring-4 focus:ring-primary-500/10 transition-all resize-y"
               />
             </div>
           </div>
 
           {/* Modal Actions - Pinned at bottom */}
-          <div className="shrink-0 px-6 py-4 border-t border-[#E1E4EB] bg-[#FAF9F6] flex items-center justify-end gap-3">
+          <div className="shrink-0 px-6 py-4 border-t border-[#E3E8E6] bg-[#F6F7F5] flex items-center justify-end gap-3">
             <Button
               type="button"
               variant="outline"
@@ -330,7 +330,7 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
               variant="primary"
               size="sm"
               isLoading={isSubmitting}
-              className="shadow-soft bg-[#4F46E5] hover:bg-[#4338CA] text-white"
+              className="shadow-soft bg-[#48677A] hover:bg-[#4338CA] text-white"
               leftIcon={<CheckCircle2 className="w-4 h-4" />}
             >
               Confirm & Update Grievance

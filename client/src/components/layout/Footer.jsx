@@ -6,13 +6,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-white border-t border-[#E5E9F2] mt-auto transition-colors">
+    <footer className="w-full bg-white border-t border-[#E3E8E6] mt-auto transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand & Purpose */}
           <div className="space-y-3.5 md:col-span-2">
             <Logo size="md" />
-            <p className="font-sans text-xs sm:text-sm text-[#596579] max-w-md leading-relaxed">
+            <p className="font-sans text-xs sm:text-sm text-[#5D6B73] max-w-md leading-relaxed">
               Smart Campus Issue Management. An intuitive platform engineered for seamless student problem reporting and administrative resolution tracking.
             </p>
             <div className="pt-1 flex items-center gap-2">
@@ -25,27 +25,27 @@ export function Footer() {
 
           {/* Platform Navigation */}
           <div className="space-y-3">
-            <h4 className="font-manrope text-xs font-bold text-[#172033] uppercase tracking-wider">
+            <h4 className="font-manrope text-xs font-bold text-[#202B33] uppercase tracking-wider">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm font-sans">
               <li>
-                <Link to="/" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <Link to="/" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <a href="/#features" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <a href="/#features" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   Features
                 </a>
               </li>
               <li>
-                <a href="/#how-it-works" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <a href="/#how-it-works" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   How It Works
                 </a>
               </li>
               <li>
-                <a href="/#roles" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <a href="/#roles" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   User Roles
                 </a>
               </li>
@@ -54,22 +54,22 @@ export function Footer() {
 
           {/* Account & Access */}
           <div className="space-y-3">
-            <h4 className="font-manrope text-xs font-bold text-[#172033] uppercase tracking-wider">
+            <h4 className="font-manrope text-xs font-bold text-[#202B33] uppercase tracking-wider">
               Account & Access
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm font-sans">
               <li>
-                <Link to="/login" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <Link to="/login" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   Sign In
                 </Link>
               </li>
               <li>
-                <Link to="/register" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <Link to="/register" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   Student Registration
                 </Link>
               </li>
               <li>
-                <Link to="/forgot-password" className="text-[#596579] hover:text-[#4F46E5] transition-colors">
+                <Link to="/forgot-password" className="text-[#5D6B73] hover:text-[#48677A] transition-colors">
                   Password Assistance
                 </Link>
               </li>
@@ -78,14 +78,14 @@ export function Footer() {
         </div>
 
         {/* StackMitra Parent Attribution & Copyright */}
-        <div className="mt-10 pt-6 border-t border-[#E5E9F2] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8993A5]">
+        <div className="mt-10 pt-6 border-t border-[#E3E8E6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#87939A]">
           <p>© {currentYear} CampusPulse. All rights reserved.</p>
 
-          <div className="flex items-center gap-1.5 text-[#596579]">
+          <div className="flex items-center gap-1.5 text-[#5D6B73]">
             <span>By</span>
-            <span className="font-semibold text-[#172033]">StackMitra</span>
-            <span className="text-[#D5DCE8]">|</span>
-            <span className="italic text-[#596579]">Projects Made Simple.</span>
+            <span className="font-semibold text-[#202B33]">StackMitra</span>
+            <span className="text-[#D2DAD6]">|</span>
+            <span className="italic text-[#5D6B73]">Projects Made Simple.</span>
           </div>
         </div>
       </div>

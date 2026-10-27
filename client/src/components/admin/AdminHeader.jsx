@@ -4,7 +4,7 @@ import { Menu, Shield, ChevronRight } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { complaintService } from '../../services/complaintService';
 
-export function AdminHeader({ onMenuClick }) {
+export function AdminHeader({ onMenuClick, onSidebarToggle, sidebarCollapsed }) {
   const { user } = useAuth();
   const location = useLocation();
 
@@ -41,28 +41,37 @@ export function AdminHeader({ onMenuClick }) {
   const { title, breadcrumb } = getPageInfo();
 
   return (
-    <header className="sticky top-0 z-20 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E9F2] px-4 sm:px-6 lg:px-8 py-3.5 transition-colors">
+    <header className="sticky top-0 z-20 w-full bg-white/95 backdrop-blur-md border-b border-[#E3E8E6] px-4 sm:px-6 lg:px-8 py-3.5 transition-colors">
       <div className="flex items-center justify-between gap-4">
         {/* Left: Mobile Toggle & Title */}
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={onMenuClick}
-            className="lg:hidden p-2 rounded-xl text-[#596579] hover:text-[#172033] hover:bg-[#F1F4FA] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5]"
+            className="lg:hidden p-2 rounded-xl text-[#5D6B73] hover:text-[#202B33] hover:bg-[#EEF1EF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48677A]"
             aria-label="Open administrator navigation menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={onSidebarToggle}
+            className="hidden lg:inline-flex p-2 rounded-xl text-[#5D6B73] hover:text-[#202B33] hover:bg-[#EEF1EF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48677A] transition-colors"
+            aria-label={sidebarCollapsed ? 'Expand administrator sidebar' : 'Collapse administrator sidebar'}
+            aria-expanded={!sidebarCollapsed}
           >
             <Menu className="w-5 h-5" />
           </button>
 
           <div>
-            <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-medium text-[#8993A5]">
+            <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-medium text-[#87939A]">
               <span>CampusPulse</span>
               <ChevronRight className="w-3 h-3" />
               <span>Operations</span>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-[#4F46E5] font-semibold">{breadcrumb}</span>
+              <span className="text-[#48677A] font-semibold">{breadcrumb}</span>
             </div>
-            <h1 className="font-sora text-lg sm:text-xl font-bold text-[#172033] leading-tight">
+            <h1 className="font-sora text-lg sm:text-xl font-bold text-[#202B33] leading-tight">
               {title}
             </h1>
           </div>
@@ -89,14 +98,14 @@ export function AdminHeader({ onMenuClick }) {
           {/* Admin Avatar & Role Chip */}
           {user && (
             <div className="flex items-center gap-2.5 pl-2 py-1">
-              <div className="w-8 h-8 rounded-xl bg-[#172554] text-white font-bold text-xs flex items-center justify-center shadow-soft">
-                <Shield className="w-4 h-4 text-indigo-300" />
+              <div className="w-8 h-8 rounded-xl bg-[#203540] text-white font-bold text-xs flex items-center justify-center shadow-soft">
+                <Shield className="w-4 h-4 text-primary-300" />
               </div>
               <div className="hidden xl:block text-left">
-                <p className="text-xs font-bold text-[#172033] leading-tight">
+                <p className="text-xs font-bold text-[#202B33] leading-tight">
                   {user.name || 'Bhargav Pasupuleti'}
                 </p>
-                <p className="text-[10px] text-[#4F46E5] font-semibold leading-none mt-0.5">
+                <p className="text-[10px] text-[#48677A] font-semibold leading-none mt-0.5">
                   Chief Administrator
                 </p>
               </div>

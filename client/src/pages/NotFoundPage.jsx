@@ -8,7 +8,7 @@ export function NotFoundPage() {
     <PageContainer size="sm" className="flex-1 flex items-center justify-center py-16 sm:py-24">
       <div className="w-full max-w-md mx-auto text-center space-y-6">
         {/* 404 Badge */}
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 text-primary-600 shadow-soft">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-50 border border-primary-100 text-primary-600 shadow-soft">
           <Compass className="w-8 h-8" strokeWidth={2} aria-hidden="true" />
         </div>
 

@@ -35,7 +35,7 @@ export function ArchitecturePage() {
         <Card>
           <CardHeader>
             <div className="flex items-center gap-2.5">
-              <div className="p-2 bg-blue-50 text-primary-600 rounded-xl">
+              <div className="p-2 bg-primary-50 text-primary-600 rounded-xl">
                 <FolderTree className="w-5 h-5" />
               </div>
               <div>
@@ -76,7 +76,7 @@ export function ArchitecturePage() {
         <Card>
           <CardHeader>
             <div className="flex items-center gap-2.5">
-              <div className="p-2 bg-indigo-50 text-indigo-600 rounded-xl">
+              <div className="p-2 bg-primary-50 text-primary-600 rounded-xl">
                 <Server className="w-5 h-5" />
               </div>
               <div>

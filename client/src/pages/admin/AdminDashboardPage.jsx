@@ -266,7 +266,7 @@ export function AdminDashboardPage() {
                 {analytics?.priorityMap?.High ?? 0}
               </span>
             </div>
-            <div className="p-3 rounded-xl bg-accent-blueSoft border border-blue-200 flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-accent-blueSoft border border-primary-200 flex items-center justify-between">
               <span className="text-xs font-semibold text-accent-blue">Medium Priority</span>
               <span className="text-sm font-bold text-accent-blue font-mono">
                 {analytics?.priorityMap?.Medium ?? 0}

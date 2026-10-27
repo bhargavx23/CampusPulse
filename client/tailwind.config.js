@@ -10,7 +10,7 @@ export default {
         // --- CampusPulse Master Design System: Part 2 ---
         // Primary Brand Colors
         brand: {
-          navy: '#172554',      // Midnight Navy
+          navy: '#203540',      // Midnight Navy
           deep: '#365363',
           indigo: '#48677A',
           bright: '#5B7D90',
@@ -36,7 +36,7 @@ export default {
           secondary: '#EEF1EF',
           card: '#FFFFFF',        // Primary Surface
           subtle: '#F2F5F4',
-          dark: '#172554',        // Dark Feature Surface
+          dark: '#203540',        // Dark Feature Surface
         },
         page: '#F6F7F5',
         card: '#FFFFFF',
@@ -51,8 +51,8 @@ export default {
         accent: {
           teal: '#0F9D8A',
           tealSoft: '#E6F7F3',
-          blue: '#3B82F6',
-          blueSoft: '#EAF2FF',
+          blue: '#48677A',
+          blueSoft: '#EAF1F4',
           violet: '#8B5CF6',
           violetSoft: '#F2ECFF',
           amber: '#D97706',
@@ -62,17 +62,17 @@ export default {
         },
         // Borders
         border: {
-          DEFAULT: '#E5E9F2',     // Standard Border
-          strong: '#D5DCE8',      // Strong Border
+          DEFAULT: '#E3E8E6',     // Standard Border
+          strong: '#D2DAD6',      // Strong Border
         },
         // Status Colors
         status: {
           pending: '#D97706',
           pendingBg: '#FFF4DB',
           pendingBorder: '#FDE68A',
-          inProgress: '#4F46E5',
-          inProgressBg: '#EEF2FF',
-          inProgressBorder: '#C7D2FE',
+          inProgress: '#48677A',
+          inProgressBg: '#EAF1F4',
+          inProgressBorder: '#D4E1E6',
           resolved: '#0F9D8A',
           resolvedBg: '#E6F7F3',
           resolvedBorder: '#A7F3D0',
@@ -85,27 +85,27 @@ export default {
         },
         // Compatibility Aliases
         workspace: {
-          ink: '#172033',
-          textPrimary: '#172033',
-          textSecondary: '#596579',
-          textMuted: '#8993A5',
-          sidebarBg: '#F1F4FA',
-          indigo: '#4F46E5',
-          softIndigo: '#EEF2FF',
+          ink: '#202B33',
+          textPrimary: '#202B33',
+          textSecondary: '#5D6B73',
+          textMuted: '#87939A',
+          sidebarBg: '#EEF1EF',
+          indigo: '#48677A',
+          softIndigo: '#EAF1F4',
           teal: '#0F9D8A',
           amber: '#D97706',
-          mist: '#F7F8FC',
-          canvas: '#F7F8FC',
+          mist: '#F6F7F5',
+          canvas: '#F6F7F5',
           card: '#FFFFFF',
-          border: '#E5E9F2',
+          border: '#E3E8E6',
         },
         issueStatus: {
           resolved: '#0F9D8A',
           resolvedBg: '#E6F7F3',
           pending: '#D97706',
           pendingBg: '#FFF4DB',
-          inProgress: '#4F46E5',
-          inProgressBg: '#EEF2FF',
+          inProgress: '#48677A',
+          inProgressBg: '#EAF1F4',
           rejected: '#E11D48',
           rejectedBg: '#FFF0F3',
         },

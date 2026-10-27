@@ -34,7 +34,7 @@ export const Input = React.forwardRef(({
       {label && (
         <label
           htmlFor={inputId}
-          className="text-xs font-semibold text-[#172033] tracking-wide select-none flex items-center justify-between"
+          className="text-xs font-semibold text-[#202B33] tracking-wide select-none flex items-center justify-between"
         >
           <span>
             {label}
@@ -45,7 +45,7 @@ export const Input = React.forwardRef(({
 
       <div className="relative flex items-center">
         {leftIcon && (
-          <div className="absolute left-3.5 flex items-center pointer-events-none text-[#8993A5]">
+          <div className="absolute left-3.5 flex items-center pointer-events-none text-[#87939A]">
             {leftIcon}
           </div>
         )}
@@ -63,17 +63,17 @@ export const Input = React.forwardRef(({
           aria-invalid={hasError ? 'true' : 'false'}
           aria-describedby={hasError ? errorId : helperText ? helperId : undefined}
           className={`
-            w-full rounded-xl border bg-white text-sm text-[#172033] placeholder:text-[#8993A5]
+            w-full rounded-xl border bg-white text-sm text-[#202B33] placeholder:text-[#87939A]
             transition-all duration-150 ease-out
             h-10 px-3.5
             ${leftIcon ? 'pl-10' : ''}
             ${rightIcon || rightElement || hasError ? 'pr-11' : ''}
             ${
               hasError
-                ? 'border-[#E11D48] text-[#172033] focus:border-[#E11D48] focus:ring-4 focus:ring-[#E11D48]/10'
-                : 'border-[#E5E9F2] focus:border-[#4F46E5] focus:ring-4 focus:ring-[#4F46E5]/10 hover:border-[#D5DCE8]'
+                ? 'border-[#E11D48] text-[#202B33] focus:border-[#E11D48] focus:ring-4 focus:ring-[#E11D48]/10'
+                : 'border-[#E3E8E6] focus:border-[#48677A] focus:ring-4 focus:ring-[#48677A]/10 hover:border-[#D2DAD6]'
             }
-            disabled:bg-[#F1F4FA] disabled:text-[#8993A5] disabled:border-[#E5E9F2] disabled:cursor-not-allowed
+            disabled:bg-[#EEF1EF] disabled:text-[#87939A] disabled:border-[#E3E8E6] disabled:cursor-not-allowed
             focus:outline-none
           `}
           {...props}
@@ -89,7 +89,7 @@ export const Input = React.forwardRef(({
           </div>
         ) : (
           rightIcon && (
-            <div className="absolute right-3.5 flex items-center pointer-events-none text-[#8993A5]">
+            <div className="absolute right-3.5 flex items-center pointer-events-none text-[#87939A]">
               {rightIcon}
             </div>
           )
@@ -101,7 +101,7 @@ export const Input = React.forwardRef(({
           {error}
         </p>
       ) : helperText ? (
-        <p id={helperId} className="text-xs text-[#596579] mt-0.5">
+        <p id={helperId} className="text-xs text-[#5D6B73] mt-0.5">
           {helperText}
         </p>
       ) : null}

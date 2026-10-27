@@ -126,19 +126,19 @@ export function AdminComplaintsPage() {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E1E4EB]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E3E8E6]">
         <div>
-          <h1 className="font-sora text-2xl font-bold text-[#202638]">
+          <h1 className="font-sora text-2xl font-bold text-[#202B33]">
             Campus Grievance Operations Table
           </h1>
-          <p className="font-sans text-xs sm:text-sm text-[#687084] mt-0.5">
+          <p className="font-sans text-xs sm:text-sm text-[#5D6B73] mt-0.5">
             Institutional tracking, technician assignment, priority escalation, and resolution closure.
           </p>
         </div>
       </div>
 
       {/* 1. Status Filter Tabs */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none border-b border-[#E1E4EB]">
+      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none border-b border-[#E3E8E6]">
         {tabs.map((tab) => {
           const isActive = statusTab === tab.id;
           return (
@@ -150,8 +150,8 @@ export function AdminComplaintsPage() {
                 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150
                 ${
                   isActive
-                    ? 'bg-[#EEF0FF] text-[#4F46E5] shadow-xs'
-                    : 'text-[#687084] hover:text-[#202638] hover:bg-white/80'
+                    ? 'bg-[#EAF1F4] text-[#48677A] shadow-xs'
+                    : 'text-[#5D6B73] hover:text-[#202B33] hover:bg-white/80'
                 }
               `}
             >
@@ -159,8 +159,8 @@ export function AdminComplaintsPage() {
               <span
                 className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
                   isActive
-                    ? 'bg-[#4F46E5] text-white'
-                    : 'bg-[#E1E4EB] text-[#687084]'
+                    ? 'bg-[#48677A] text-white'
+                    : 'bg-[#E3E8E6] text-[#5D6B73]'
                 }`}
               >
                 {tab.count}
@@ -171,17 +171,17 @@ export function AdminComplaintsPage() {
       </div>
 
       {/* 2. Search, Filters & Sorting Toolbar */}
-      <Card className="border-[#E1E4EB] shadow-xs bg-white">
+      <Card className="border-[#E3E8E6] shadow-xs bg-white">
         <CardContent className="p-4 space-y-3 sm:space-y-0 sm:flex sm:items-center sm:gap-3">
           {/* Search Box */}
           <div className="flex-1 relative">
-            <Search className="w-4 h-4 text-[#8B92A3] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-[#87939A] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               placeholder="Search by ticket ID, headline, location, or student name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full h-10 pl-10 pr-4 text-xs rounded-xl border border-[#E1E4EB] bg-[#F0F1F5]/50 text-[#202638] placeholder-[#8B92A3] focus:outline-none focus:bg-white focus:border-[#4F46E5] focus:ring-4 focus:ring-indigo-500/10 transition-all"
+              className="w-full h-10 pl-10 pr-4 text-xs rounded-xl border border-[#E3E8E6] bg-[#EEF1EF]/50 text-[#202B33] placeholder-[#87939A] focus:outline-none focus:bg-white focus:border-[#48677A] focus:ring-4 focus:ring-primary-500/10 transition-all"
             />
           </div>
 
@@ -190,7 +190,7 @@ export function AdminComplaintsPage() {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="h-10 text-xs rounded-xl border border-[#E1E4EB] bg-white px-3 text-[#202638] focus:outline-none focus:ring-2 focus:ring-[#4F46E5] cursor-pointer"
+              className="h-10 text-xs rounded-xl border border-[#E3E8E6] bg-white px-3 text-[#202B33] focus:outline-none focus:ring-2 focus:ring-[#48677A] cursor-pointer"
               aria-label="Filter by department category"
             >
               {CATEGORY_FILTER_OPTIONS.map((opt) => (
@@ -204,7 +204,7 @@ export function AdminComplaintsPage() {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="h-10 text-xs rounded-xl border border-[#E1E4EB] bg-white px-3 text-[#202638] focus:outline-none focus:ring-2 focus:ring-[#4F46E5] cursor-pointer"
+              className="h-10 text-xs rounded-xl border border-[#E3E8E6] bg-white px-3 text-[#202B33] focus:outline-none focus:ring-2 focus:ring-[#48677A] cursor-pointer"
               aria-label="Filter by priority"
             >
               {PRIORITY_FILTER_OPTIONS.map((opt) => (
@@ -218,7 +218,7 @@ export function AdminComplaintsPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="h-10 text-xs rounded-xl border border-[#E1E4EB] bg-white px-3 text-[#202638] focus:outline-none focus:ring-2 focus:ring-[#4F46E5] cursor-pointer font-medium"
+              className="h-10 text-xs rounded-xl border border-[#E3E8E6] bg-white px-3 text-[#202B33] focus:outline-none focus:ring-2 focus:ring-[#48677A] cursor-pointer font-medium"
               aria-label="Sort complaints order"
             >
               <option value="newest">Sort: Newest First</option>
@@ -230,11 +230,11 @@ export function AdminComplaintsPage() {
       </Card>
 
       {/* 3. Complaints Table (Desktop) / Cards (Mobile) */}
-      <Card className="border-[#E1E4EB] shadow-xs bg-white overflow-hidden">
+      <Card className="border-[#E3E8E6] shadow-xs bg-white overflow-hidden">
         {complaints.length === 0 ? (
           <div className="p-12 text-center">
             <EmptyState
-              icon={<FileText className="w-10 h-10 text-[#8B92A3]" />}
+              icon={<FileText className="w-10 h-10 text-[#87939A]" />}
               title="No grievances match the filter criteria"
               description="Adjust your search query or status tab to view complaints across other departments."
             />
@@ -243,8 +243,8 @@ export function AdminComplaintsPage() {
           <>
             {/* Desktop Table View */}
             <div className="hidden lg:block overflow-x-auto">
-              <table className="w-full text-left text-xs text-[#202638]">
-                <thead className="bg-[#FAF9F6] border-b border-[#E1E4EB] text-[11px] font-bold uppercase tracking-wider text-[#687084]">
+              <table className="w-full text-left text-xs text-[#202B33]">
+                <thead className="bg-[#F6F7F5] border-b border-[#E3E8E6] text-[11px] font-bold uppercase tracking-wider text-[#5D6B73]">
                   <tr>
                     <th className="py-3.5 px-5">Ticket ID</th>
                     <th className="py-3.5 px-4">Headline & Specific Location</th>
@@ -255,33 +255,33 @@ export function AdminComplaintsPage() {
                     <th className="py-3.5 px-5 text-right">Triage Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E1E4EB]">
+                <tbody className="divide-y divide-[#E3E8E6]">
                   {complaints.map((c) => (
                     <tr
                       key={c.id}
-                      className="hover:bg-[#F0F1F5]/60 transition-colors duration-150 group"
+                      className="hover:bg-[#EEF1EF]/60 transition-colors duration-150 group"
                     >
-                      <td className="py-3.5 px-5 font-mono font-bold text-[#4F46E5]">
+                      <td className="py-3.5 px-5 font-mono font-bold text-[#48677A]">
                         {c.id}
                       </td>
                       <td className="py-3.5 px-4 max-w-sm">
-                        <p className="font-bold text-[#202638] leading-snug">{c.title}</p>
-                        <p className="text-[11px] text-[#687084] flex items-center gap-1 mt-0.5">
-                          <MapPin className="w-3 h-3 text-[#8B92A3]" />
+                        <p className="font-bold text-[#202B33] leading-snug">{c.title}</p>
+                        <p className="text-[11px] text-[#5D6B73] flex items-center gap-1 mt-0.5">
+                          <MapPin className="w-3 h-3 text-[#87939A]" />
                           <span>{c.location}</span>
                         </p>
                       </td>
                       <td className="py-3.5 px-4">
-                        <p className="font-semibold text-[#202638]">{c.studentName}</p>
-                        <p className="text-[10px] text-[#8B92A3] font-mono">
+                        <p className="font-semibold text-[#202B33]">{c.studentName}</p>
+                        <p className="text-[10px] text-[#87939A] font-mono">
                           {c.studentId || c.studentEmail}
                         </p>
                       </td>
                       <td className="py-3.5 px-4">
-                        <p className="font-medium text-[#202638] leading-tight">
+                        <p className="font-medium text-[#202B33] leading-tight">
                           {c.assignedTo}
                         </p>
-                        <p className="text-[10px] text-[#8B92A3] mt-0.5">
+                        <p className="text-[10px] text-[#87939A] mt-0.5">
                           Category: {c.category}
                         </p>
                       </td>
@@ -301,7 +301,7 @@ export function AdminComplaintsPage() {
                           variant="primary"
                           size="xs"
                           onClick={() => handleOpenTriage(c)}
-                          className="bg-[#4F46E5] hover:bg-indigo-700 shadow-xs font-semibold text-xs"
+                          className="bg-[#48677A] hover:bg-primary-700 shadow-xs font-semibold text-xs"
                         >
                           Triage & Update
                         </Button>
@@ -313,11 +313,11 @@ export function AdminComplaintsPage() {
             </div>
 
             {/* Mobile / Tablet Cards View */}
-            <div className="lg:hidden divide-y divide-[#E1E4EB]">
+            <div className="lg:hidden divide-y divide-[#E3E8E6]">
               {complaints.map((c) => (
                 <div key={c.id} className="p-4 space-y-3">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono font-bold text-xs text-[#4F46E5]">
+                    <span className="font-mono font-bold text-xs text-[#48677A]">
                       {c.id}
                     </span>
                     <div className="flex items-center gap-1.5">
@@ -331,27 +331,27 @@ export function AdminComplaintsPage() {
                   </div>
 
                   <div>
-                    <h3 className="font-sora text-sm font-bold text-[#202638]">
+                    <h3 className="font-sora text-sm font-bold text-[#202B33]">
                       {c.title}
                     </h3>
-                    <p className="text-xs text-[#687084] mt-0.5 line-clamp-2">
+                    <p className="text-xs text-[#5D6B73] mt-0.5 line-clamp-2">
                       {c.description}
                     </p>
                   </div>
 
-                  <div className="pt-1 flex flex-wrap items-center gap-y-1 gap-x-3 text-[11px] text-[#687084]">
-                    <span className="flex items-center gap-1 font-semibold text-[#202638]">
-                      <User className="w-3 h-3 text-[#4F46E5]" />
+                  <div className="pt-1 flex flex-wrap items-center gap-y-1 gap-x-3 text-[11px] text-[#5D6B73]">
+                    <span className="flex items-center gap-1 font-semibold text-[#202B33]">
+                      <User className="w-3 h-3 text-[#48677A]" />
                       {c.studentName}
                     </span>
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-[#8B92A3]" />
+                      <MapPin className="w-3 h-3 text-[#87939A]" />
                       {c.location}
                     </span>
                   </div>
 
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] text-[#8B92A3]">
+                    <span className="text-[11px] text-[#87939A]">
                       Assigned: {c.assignedTo}
                     </span>
                     <Button
@@ -359,7 +359,7 @@ export function AdminComplaintsPage() {
                       variant="primary"
                       size="xs"
                       onClick={() => handleOpenTriage(c)}
-                      className="bg-[#4F46E5] text-xs font-semibold"
+                      className="bg-[#48677A] text-xs font-semibold"
                     >
                       Triage
                     </Button>

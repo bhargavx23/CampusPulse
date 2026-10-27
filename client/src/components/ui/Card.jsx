@@ -31,7 +31,7 @@ export function CardHeader({
 }) {
   return (
     <div
-      className={`px-6 py-5 border-b border-[#E5E9F2] flex items-start justify-between gap-4 ${className}`}
+      className={`px-6 py-5 border-b border-[#E3E8E6] flex items-start justify-between gap-4 ${className}`}
       {...props}
     >
       {children}
@@ -47,7 +47,7 @@ export function CardTitle({
 }) {
   return (
     <Component
-      className={`font-manrope text-base sm:text-lg font-semibold text-[#172033] tracking-tight leading-snug ${className}`}
+      className={`font-manrope text-base sm:text-lg font-semibold text-[#202B33] tracking-tight leading-snug ${className}`}
       {...props}
     >
       {children}
@@ -62,7 +62,7 @@ export function CardDescription({
 }) {
   return (
     <p
-      className={`text-xs sm:text-sm text-[#596579] font-sans mt-1 leading-relaxed ${className}`}
+      className={`text-xs sm:text-sm text-[#5D6B73] font-sans mt-1 leading-relaxed ${className}`}
       {...props}
     >
       {children}
@@ -89,7 +89,7 @@ export function CardFooter({
 }) {
   return (
     <div
-      className={`px-6 py-4 bg-[#F7F8FC] rounded-b-2xl border-t border-[#E5E9F2] flex items-center justify-between text-xs sm:text-sm text-[#596579] ${className}`}
+      className={`px-6 py-4 bg-[#F6F7F5] rounded-b-2xl border-t border-[#E3E8E6] flex items-center justify-between text-xs sm:text-sm text-[#5D6B73] ${className}`}
       {...props}
     >
       {children}

@@ -292,7 +292,7 @@ export function ComplaintDetailsPage() {
                   {complaint.attachments.map((file, idx) => (
                     <div key={idx} className="p-3 rounded-xl border border-slate-200 bg-white flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2.5">
-                        <div className="p-2 rounded-lg bg-blue-50 text-primary-600">
+                        <div className="p-2 rounded-lg bg-primary-50 text-primary-600">
                           <ImageIcon className="w-4 h-4" />
                         </div>
                         <div>
@@ -345,7 +345,7 @@ export function ComplaintDetailsPage() {
                     return (
                       <div key={event.id || index} className="relative text-xs space-y-1">
                         <span className={`absolute -left-6 top-1 w-3 h-3 rounded-full ring-4 ring-white ${
-                          isResolved ? 'bg-emerald-600' : isInProgress ? 'bg-blue-600' : 'bg-primary-600'
+                          isResolved ? 'bg-emerald-600' : isInProgress ? 'bg-primary-600' : 'bg-primary-600'
                         }`} />
                         <div className="flex items-center justify-between">
                           <span className="font-semibold text-slate-900 text-xs sm:text-sm">{event.label}</span>

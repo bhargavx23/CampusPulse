@@ -21,8 +21,8 @@ export function Badge({
       dot: 'bg-[#D97706]',
     },
     'in-progress': {
-      badge: 'bg-[#EEF2FF] text-[#4F46E5] border-[#C7D2FE]',
-      dot: 'bg-[#4F46E5]',
+      badge: 'bg-[#EAF1F4] text-[#48677A] border-[#D4E1E6]',
+      dot: 'bg-[#48677A]',
     },
     resolved: {
       badge: 'bg-[#E6F7F3] text-[#0F9D8A] border-[#A7F3D0]',
@@ -37,12 +37,12 @@ export function Badge({
       dot: 'bg-[#E11D48]',
     },
     neutral: {
-      badge: 'bg-[#F1F4FA] text-[#596579] border-[#E5E9F2]',
-      dot: 'bg-[#8993A5]',
+      badge: 'bg-[#EEF1EF] text-[#5D6B73] border-[#E3E8E6]',
+      dot: 'bg-[#87939A]',
     },
     info: {
-      badge: 'bg-[#EAF2FF] text-[#3B82F6] border-[#BFDBFE]',
-      dot: 'bg-[#3B82F6]',
+      badge: 'bg-[#EAF1F4] text-[#48677A] border-[#D4E1E6]',
+      dot: 'bg-[#48677A]',
     },
   };
 

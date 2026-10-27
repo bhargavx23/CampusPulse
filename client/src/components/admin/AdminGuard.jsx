@@ -16,8 +16,8 @@ export function AdminGuard() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F5F4F0]">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 rounded-full border-2 border-[#4F46E5] border-t-transparent animate-spin" />
-          <p className="text-xs font-semibold text-[#687084]">Verifying administrator credentials...</p>
+          <div className="w-8 h-8 rounded-full border-2 border-[#48677A] border-t-transparent animate-spin" />
+          <p className="text-xs font-semibold text-[#5D6B73]">Verifying administrator credentials...</p>
         </div>
       </div>
     );

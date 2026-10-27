@@ -33,10 +33,10 @@ export function ErrorMessage({
       textColor: 'text-amber-700',
     },
     info: {
-      container: 'bg-blue-50/70 border-blue-200 text-blue-900',
-      icon: <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />,
-      titleColor: 'text-blue-900',
-      textColor: 'text-blue-700',
+      container: 'bg-primary-50/70 border-primary-200 text-primary-900',
+      icon: <Info className="w-5 h-5 text-primary-600 shrink-0 mt-0.5" aria-hidden="true" />,
+      titleColor: 'text-primary-900',
+      textColor: 'text-primary-700',
     },
   };
 

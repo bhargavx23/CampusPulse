@@ -247,7 +247,7 @@ export function RegisterPage() {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="p-1 text-[#8B92A3] hover:text-[#202638] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded transition-colors"
+                        className="p-1 text-[#87939A] hover:text-[#202B33] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48677A] rounded transition-colors"
                         aria-label={showPassword ? 'Hide password' : 'Show password'}
                       >
                         {showPassword ? (
@@ -279,7 +279,7 @@ export function RegisterPage() {
                       <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="p-1 text-[#8B92A3] hover:text-[#202638] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded transition-colors"
+                        className="p-1 text-[#87939A] hover:text-[#202B33] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48677A] rounded transition-colors"
                         aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
                       >
                         {showConfirmPassword ? (

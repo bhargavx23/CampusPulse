@@ -32,12 +32,12 @@ export const Button = React.forwardRef(({
   };
 
   const variantStyles = {
-    primary: 'bg-[#48677A] text-white hover:bg-[#365363] active:bg-[#2F4855] shadow-soft focus-visible:ring-[#6D8998] disabled:bg-[#E5E9F2] disabled:text-[#8993A5] disabled:shadow-none',
-    secondary: 'bg-[#F1F4FA] text-[#172033] hover:bg-[#E5E9F2] active:bg-[#D5DCE8] focus-visible:ring-[#4F46E5] disabled:bg-[#F1F4FA] disabled:text-[#8993A5]',
-    outline: 'border border-[#E5E9F2] bg-white text-[#172033] hover:bg-[#F7F8FC] hover:border-[#D5DCE8] active:bg-[#F1F4FA] focus-visible:ring-[#4F46E5] disabled:bg-white disabled:border-[#E5E9F2] disabled:text-[#8993A5] shadow-soft',
-    ghost: 'bg-transparent text-[#596579] hover:bg-[#F1F4FA] hover:text-[#172033] active:bg-[#E5E9F2] focus-visible:ring-[#4F46E5] disabled:text-[#8993A5]',
+    primary: 'bg-[#48677A] text-white hover:bg-[#365363] active:bg-[#2F4855] shadow-soft focus-visible:ring-[#6D8998] disabled:bg-[#E3E8E6] disabled:text-[#87939A] disabled:shadow-none',
+    secondary: 'bg-[#EEF1EF] text-[#202B33] hover:bg-[#E3E8E6] active:bg-[#D2DAD6] focus-visible:ring-[#48677A] disabled:bg-[#EEF1EF] disabled:text-[#87939A]',
+    outline: 'border border-[#E3E8E6] bg-white text-[#202B33] hover:bg-[#F6F7F5] hover:border-[#D2DAD6] active:bg-[#EEF1EF] focus-visible:ring-[#48677A] disabled:bg-white disabled:border-[#E3E8E6] disabled:text-[#87939A] shadow-soft',
+    ghost: 'bg-transparent text-[#5D6B73] hover:bg-[#EEF1EF] hover:text-[#202B33] active:bg-[#E3E8E6] focus-visible:ring-[#48677A] disabled:text-[#87939A]',
     danger: 'bg-[#E11D48] text-white hover:bg-[#BE123C] active:bg-[#9F1239] shadow-soft focus-visible:ring-[#E11D48] disabled:bg-[#FECDD3] disabled:text-white',
-    navy: 'bg-[#172554] text-white hover:bg-[#1E293B] active:bg-[#0F172A] shadow-soft focus-visible:ring-[#172554] disabled:bg-[#E5E9F2] disabled:text-[#8993A5]',
+    navy: 'bg-[#203540] text-white hover:bg-[#1E293B] active:bg-[#0F172A] shadow-soft focus-visible:ring-[#203540] disabled:bg-[#E3E8E6] disabled:text-[#87939A]',
   };
 
   const isDisabled = disabled || isLoading;

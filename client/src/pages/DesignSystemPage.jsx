@@ -67,13 +67,13 @@ export function DesignSystemPage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {[
-            { name: 'Primary Blue', hex: '#2563EB', bg: 'bg-[#2563EB]', text: 'text-white', role: 'Main actions, brand identity' },
-            { name: 'Dark Blue Accent', hex: '#1E3A8A', bg: 'bg-[#1E3A8A]', text: 'text-white', role: 'Header emphasis, deep contrast' },
-            { name: 'Page Background', hex: '#F8FAFC', bg: 'bg-[#F8FAFC]', text: 'text-slate-800', border: 'border border-slate-200', role: 'Global application canvas' },
+            { name: 'Primary Steel Blue', hex: '#48677A', bg: 'bg-[#48677A]', text: 'text-white', role: 'Main actions, brand identity' },
+            { name: 'Deep Blue Gray', hex: '#365363', bg: 'bg-[#365363]', text: 'text-white', role: 'Header emphasis, deep contrast' },
+            { name: 'Page Background', hex: '#F6F7F5', bg: 'bg-[#F6F7F5]', text: 'text-slate-800', border: 'border border-slate-200', role: 'Global application canvas' },
             { name: 'Card Background', hex: '#FFFFFF', bg: 'bg-[#FFFFFF]', text: 'text-slate-800', border: 'border border-slate-200', role: 'Surfaces, modules, containers' },
-            { name: 'Main Text', hex: '#0F172A', bg: 'bg-[#0F172A]', text: 'text-white', role: 'Primary headings & titles' },
-            { name: 'Secondary Text', hex: '#64748B', bg: 'bg-[#64748B]', text: 'text-white', role: 'Subtitles, meta, captions' },
-            { name: 'Subtle Border', hex: '#E2E8F0', bg: 'bg-[#E2E8F0]', text: 'text-slate-800', border: 'border border-slate-300', role: 'Dividers and component borders' },
+            { name: 'Main Text', hex: '#202B33', bg: 'bg-[#202B33]', text: 'text-white', role: 'Primary headings & titles' },
+            { name: 'Secondary Text', hex: '#5D6B73', bg: 'bg-[#5D6B73]', text: 'text-white', role: 'Subtitles, meta, captions' },
+            { name: 'Subtle Border', hex: '#E3E8E6', bg: 'bg-[#E3E8E6]', text: 'text-slate-800', border: 'border border-slate-300', role: 'Dividers and component borders' },
             { name: 'Success Green', hex: '#16A34A', bg: 'bg-[#16A34A]', text: 'text-white', role: 'Resolved complaints & positive alerts' },
             { name: 'Warning Amber', hex: '#D97706', bg: 'bg-[#D97706]', text: 'text-white', role: 'Pending status & advisory banners' },
             { name: 'Error Crimson', hex: '#DC2626', bg: 'bg-[#DC2626]', text: 'text-white', role: 'Input validation errors & alerts' },
@@ -464,7 +464,7 @@ export function DesignSystemPage() {
 
           <Card>
             <CardContent className="space-y-3">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 text-primary-600 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center">
                 <FileText className="w-4 h-4" />
               </div>
               <h3 className="font-manrope text-base font-semibold text-slate-900">

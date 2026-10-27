@@ -79,18 +79,18 @@ export function StudentProfilePage() {
         {/* Left Column: Student Identity Card & Activity (1 Col) */}
         <div className="space-y-6">
           <Card className="border-workspace-border shadow-soft text-center p-6 bg-white">
-            <div className="w-20 h-20 rounded-2xl bg-[#EEF0FF] text-[#4F46E5] font-bold text-2xl flex items-center justify-center mx-auto border-2 border-indigo-200 shadow-sm mb-4">
+            <div className="w-20 h-20 rounded-2xl bg-[#EAF1F4] text-[#48677A] font-bold text-2xl flex items-center justify-center mx-auto border-2 border-primary-200 shadow-sm mb-4">
               {user?.name ? user.name.charAt(0) : 'S'}
             </div>
-            <h3 className="font-sora text-lg font-bold text-[#202638]">
+            <h3 className="font-sora text-lg font-bold text-[#202B33]">
               {user?.name}
             </h3>
-            <p className="font-mono text-xs text-[#4F46E5] font-semibold mt-0.5">
+            <p className="font-mono text-xs text-[#48677A] font-semibold mt-0.5">
               Roll No: {user?.rollNumber || user?.studentId}
             </p>
-            <p className="text-xs text-[#687084] mt-1">{user?.email}</p>
+            <p className="text-xs text-[#5D6B73] mt-1">{user?.email}</p>
 
-            <div className="mt-4 pt-4 border-t border-[#E1E4EB] flex items-center justify-center gap-2">
+            <div className="mt-4 pt-4 border-t border-[#E3E8E6] flex items-center justify-center gap-2">
               <Badge variant="resolved" showDot>
                 {user?.role === 'admin' ? 'Campus Administrator' : 'Verified Enrolled Student'}
               </Badge>
@@ -99,20 +99,20 @@ export function StudentProfilePage() {
 
           {/* Quick Metrics */}
           <Card className="border-workspace-border shadow-soft p-5 space-y-3 bg-white">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#8B92A3] block">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#87939A] block">
               Grievance Activity
             </span>
             <div className="flex justify-between items-center text-xs">
-              <span className="text-[#687084]">Complaints Filed:</span>
-              <span className="font-bold text-[#202638]">{stats.total}</span>
+              <span className="text-[#5D6B73]">Complaints Filed:</span>
+              <span className="font-bold text-[#202B33]">{stats.total}</span>
             </div>
             <div className="flex justify-between items-center text-xs">
-              <span className="text-[#687084]">Successfully Resolved:</span>
+              <span className="text-[#5D6B73]">Successfully Resolved:</span>
               <span className="font-bold text-[#287C78]">{stats.resolved}</span>
             </div>
             <div className="flex justify-between items-center text-xs">
-              <span className="text-[#687084]">Account Enrolled:</span>
-              <span className="text-[#687084]">{user?.enrolledAt || '2026'}</span>
+              <span className="text-[#5D6B73]">Account Enrolled:</span>
+              <span className="text-[#5D6B73]">{user?.enrolledAt || '2026'}</span>
             </div>
           </Card>
         </div>
@@ -123,52 +123,52 @@ export function StudentProfilePage() {
           <Card className="border-workspace-border shadow-soft bg-white">
             <CardHeader>
               <div>
-                <CardTitle className="text-base font-semibold text-[#202638]">Institutional Academic Record</CardTitle>
+                <CardTitle className="text-base font-semibold text-[#202B33]">Institutional Academic Record</CardTitle>
                 <CardDescription>Verified academic details provisioned upon registration</CardDescription>
               </div>
             </CardHeader>
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-sans">
-              <div className="p-3.5 rounded-xl bg-[#F0F1F5] border border-[#E1E4EB] space-y-1">
-                <span className="text-[#8B92A3] text-[10px] font-semibold uppercase tracking-wider block">
+              <div className="p-3.5 rounded-xl bg-[#EEF1EF] border border-[#E3E8E6] space-y-1">
+                <span className="text-[#87939A] text-[10px] font-semibold uppercase tracking-wider block">
                   Branch / Department
                 </span>
-                <p className="font-semibold text-[#202638] text-sm">
+                <p className="font-semibold text-[#202B33] text-sm">
                   {user?.branch || user?.department || 'CSE — Computer Science and Engineering'}
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F0F1F5] border border-[#E1E4EB] space-y-1">
-                <span className="text-[#8B92A3] text-[10px] font-semibold uppercase tracking-wider block">
+              <div className="p-3.5 rounded-xl bg-[#EEF1EF] border border-[#E3E8E6] space-y-1">
+                <span className="text-[#87939A] text-[10px] font-semibold uppercase tracking-wider block">
                   Year of Study
                 </span>
-                <p className="font-semibold text-[#202638] text-sm">
+                <p className="font-semibold text-[#202B33] text-sm">
                   {user?.yearOfStudy || user?.academicYear || '3rd Year'}
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F0F1F5] border border-[#E1E4EB] space-y-1">
-                <span className="text-[#8B92A3] text-[10px] font-semibold uppercase tracking-wider block">
+              <div className="p-3.5 rounded-xl bg-[#EEF1EF] border border-[#E3E8E6] space-y-1">
+                <span className="text-[#87939A] text-[10px] font-semibold uppercase tracking-wider block">
                   Class Section
                 </span>
-                <p className="font-semibold text-[#202638] text-sm">
+                <p className="font-semibold text-[#202B33] text-sm">
                   Section {user?.section || 'A'}
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F0F1F5] border border-[#E1E4EB] space-y-1">
-                <span className="text-[#8B92A3] text-[10px] font-semibold uppercase tracking-wider block">
+              <div className="p-3.5 rounded-xl bg-[#EEF1EF] border border-[#E3E8E6] space-y-1">
+                <span className="text-[#87939A] text-[10px] font-semibold uppercase tracking-wider block">
                   College Roll Number
                 </span>
-                <p className="font-semibold text-[#4F46E5] text-sm font-mono">
+                <p className="font-semibold text-[#48677A] text-sm font-mono">
                   {user?.rollNumber || user?.studentId || 'STU-2024-8842'}
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F0F1F5] border border-[#E1E4EB] space-y-1 sm:col-span-2">
-                <span className="text-[#8B92A3] text-[10px] font-semibold uppercase tracking-wider block">
+              <div className="p-3.5 rounded-xl bg-[#EEF1EF] border border-[#E3E8E6] space-y-1 sm:col-span-2">
+                <span className="text-[#87939A] text-[10px] font-semibold uppercase tracking-wider block">
                   Degree / Program
                 </span>
-                <p className="font-semibold text-[#202638] text-sm">
+                <p className="font-semibold text-[#202B33] text-sm">
                   {user?.course || 'Bachelor of Technology (B.Tech)'}
                 </p>
               </div>

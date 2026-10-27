@@ -306,7 +306,7 @@ export function StudentComplaintsPage() {
                             className={`
                               ${item.priority === 'Urgent' ? 'text-rose-600' : ''}
                               ${item.priority === 'High' ? 'text-amber-600' : ''}
-                              ${item.priority === 'Medium' ? 'text-blue-600' : ''}
+                              ${item.priority === 'Medium' ? 'text-primary-600' : ''}
                               ${item.priority === 'Low' ? 'text-slate-500' : ''}
                             `}
                           >
