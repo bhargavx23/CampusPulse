@@ -4,17 +4,14 @@ import {
   X,
   CheckCircle2,
   AlertCircle,
-  Clock,
-  RefreshCw,
   User,
   MapPin,
   Tag,
-  Paperclip,
   Send,
-  Shield,
-  FileText,
+  Image as ImageIcon,
+  Maximize2,
 } from 'lucide-react';
-import { Button, Input, Select, Badge } from '../ui';
+import { Button, Select, Badge } from '../ui';
 import { useAuth } from '../../context/AuthContext';
 import { complaintService } from '../../services/complaintService';
 
@@ -56,6 +53,12 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
   const [note, setNote] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [evidenceLightbox, setEvidenceLightbox] = useState(false);
+
+  // Get evidence image URL
+  const evidenceImage = Array.isArray(complaint?.attachments)
+    ? complaint.attachments.find((a) => a.url && a.type && a.type.startsWith('image/'))
+    : null;
 
   // Sync state whenever complaint changes
   useEffect(() => {
@@ -135,6 +138,29 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
         aria-hidden="true"
       />
 
+      {/* Evidence Lightbox */}
+      {evidenceLightbox && evidenceImage && (
+        <div
+          className="fixed inset-0 z-[10000] bg-black/85 flex items-center justify-center p-4"
+          onClick={() => setEvidenceLightbox(false)}
+        >
+          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setEvidenceLightbox(false)}
+              className="absolute -top-10 right-0 text-white/80 hover:text-white p-1"
+              aria-label="Close lightbox"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <img
+              src={evidenceImage.url}
+              alt="Evidence full view"
+              className="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Modal Dialog Card */}
       <div
         role="dialog"
@@ -190,6 +216,38 @@ export function AdminComplaintModal({ complaint, isOpen, onClose, onUpdated }) {
                 </span>
               </div>
             </div>
+
+            {/* Evidence Image (if available) */}
+            {evidenceImage && (
+              <div className="space-y-2">
+                <p className="text-xs font-semibold text-[#202638]">Photo Evidence</p>
+                <div
+                  className="relative rounded-xl overflow-hidden border border-slate-200 cursor-pointer group"
+                  onClick={() => setEvidenceLightbox(true)}
+                  role="button"
+                  aria-label="View evidence image enlarged"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && setEvidenceLightbox(true)}
+                >
+                  <img
+                    src={evidenceImage.url}
+                    alt="Complaint evidence photo"
+                    className="w-full max-h-48 object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10">
+                    <span className="bg-white/90 backdrop-blur-sm rounded-lg px-2.5 py-1.5 flex items-center gap-1.5 text-xs font-semibold text-slate-700 shadow-sm">
+                      <Maximize2 className="w-3.5 h-3.5" />
+                      Enlarge
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+                  <ImageIcon className="w-3 h-3 shrink-0" />
+                  <span className="truncate">{evidenceImage.name}</span>
+                  {evidenceImage.size && <span className="shrink-0">({evidenceImage.size})</span>}
+                </div>
+              </div>
+            )}
 
             {error && (
               <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-2">

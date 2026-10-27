@@ -107,17 +107,9 @@ export function LoginPage() {
 
               {/* Password */}
               <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-slate-700 tracking-wide">
-                    Password <span className="text-red-500">*</span>
-                  </span>
-                  <Link
-                    to="/forgot-password"
-                    className="text-xs font-semibold text-[#4F46E5] hover:text-indigo-700 transition-colors"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
+                <span className="text-xs font-semibold text-slate-700 tracking-wide block">
+                  Password <span className="text-red-500">*</span>
+                </span>
                 <Input
                   id="login-password"
                   name="password"

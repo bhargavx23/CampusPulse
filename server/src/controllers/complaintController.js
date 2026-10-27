@@ -1,5 +1,6 @@
 import Complaint, { COMPLAINT_CATEGORIES, COMPLAINT_PRIORITIES, COMPLAINT_STATUSES } from '../models/Complaint.js';
 import Notification from '../models/Notification.js';
+import { uploadToCloudinary, isCloudinaryConfigured } from '../middleware/upload.js';
 
 /**
  * Generates next sequential tracking ID e.g. CP-2026-1001
@@ -356,4 +357,81 @@ export default {
   triageComplaint,
   getAdminAnalytics,
   getStudentStats,
+  uploadEvidence,
 };
+
+/**
+ * Upload evidence image for a complaint (student only, own complaint).
+ * Uses Cloudinary for persistent storage.
+ * POST /api/complaints/:id/evidence
+ */
+export async function uploadEvidence(req, res) {
+  try {
+    const { id } = req.params;
+
+    if (!isCloudinaryConfigured()) {
+      return res.status(503).json({
+        success: false,
+        error: 'Image storage is not configured on this server. Please contact the administrator.',
+      });
+    }
+
+    if (!req.file) {
+      return res.status(400).json({ success: false, error: 'No image file was provided.' });
+    }
+
+    // Find the complaint
+    const complaint = await Complaint.findOne({
+      $or: [{ trackingId: id }, { _id: id.match(/^[0-9a-fA-F]{24}$/) ? id : null }],
+    });
+
+    if (!complaint) {
+      return res.status(404).json({ success: false, error: `Complaint "${id}" not found.` });
+    }
+
+    // Enforce ownership: only the student who filed it can upload evidence
+    if (req.user.role === 'student' && complaint.student.toString() !== req.user._id.toString()) {
+      return res.status(403).json({
+        success: false,
+        error: 'Access denied: You can only upload evidence to your own complaints.',
+      });
+    }
+
+    // Upload to Cloudinary
+    const secureUrl = await uploadToCloudinary(
+      req.file.buffer,
+      req.file.originalname,
+      complaint.trackingId
+    );
+
+    // Update complaint attachments — replace any existing evidence image
+    const evidenceAttachment = {
+      name: req.file.originalname || 'evidence.jpg',
+      size: `${(req.file.size / 1024).toFixed(1)} KB`,
+      type: req.file.mimetype,
+      url: secureUrl,
+    };
+
+    // Replace first attachment if it's an image, otherwise prepend
+    if (complaint.attachments.length > 0 && complaint.attachments[0].type.startsWith('image/')) {
+      complaint.attachments[0] = evidenceAttachment;
+    } else {
+      complaint.attachments.unshift(evidenceAttachment);
+    }
+
+    await complaint.save();
+
+    return res.status(200).json({
+      success: true,
+      message: 'Evidence image uploaded successfully.',
+      evidenceUrl: secureUrl,
+      complaint: complaint.toJSON(),
+    });
+  } catch (error) {
+    console.error('uploadEvidence error:', error);
+    if (error.message && error.message.includes('Invalid file type')) {
+      return res.status(400).json({ success: false, error: error.message });
+    }
+    return res.status(500).json({ success: false, error: 'Server error uploading evidence image.' });
+  }
+}
