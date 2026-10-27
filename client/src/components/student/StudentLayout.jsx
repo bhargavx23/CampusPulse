@@ -7,7 +7,7 @@ export function StudentLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex bg-workspace-mist text-workspace-textPrimary selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen flex bg-[#F6F7F5] text-[#202B33] selection:bg-[#DCE8E8] selection:text-[#243842]">
       {/* Sidebar (Desktop persistent + Mobile drawer) */}
       <StudentSidebar
         mobileOpen={mobileMenuOpen}

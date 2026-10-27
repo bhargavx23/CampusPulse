@@ -11,27 +11,27 @@
   /* Primary Brand Tokens */
   --brand-navy: #172554;
   --brand-deep: #3730A3;
-  --brand-indigo: #4F46E5;
-  --brand-bright: #6366F1;
-  --brand-soft: #EEF2FF;
-  --brand-pale: #F5F7FF;
+  --brand-indigo: #48677A;
+  --brand-bright: #5B7D90;
+  --brand-soft: #EAF1F4;
+  --brand-pale: #F4F7F8;
 
   /* Surfaces & Backgrounds */
-  --surface-main: #F7F8FC;
-  --surface-secondary: #F1F4FA;
+  --surface-main: #F6F7F5;
+  --surface-secondary: #EEF1EF;
   --surface-card: #FFFFFF;
-  --surface-subtle: #F5F6FF;
+  --surface-subtle: #F2F5F4;
   --surface-dark: #172554;
 
   /* Typography Text Tokens */
-  --text-primary: #172033;
-  --text-secondary: #596579;
-  --text-muted: #8993A5;
+  --text-primary: #202B33;
+  --text-secondary: #5D6B73;
+  --text-muted: #87939A;
   --text-inverse: #FFFFFF;
 
   /* Borders & Shadows */
-  --border-std: #E5E9F2;
-  --border-strong: #D5DCE8;
+  --border-std: #E3E8E6;
+  --border-strong: #D2DAD6;
 
   /* Coordinated Status Tokens */
   --status-pending: #D97706;
@@ -62,8 +62,9 @@
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.5;
-    background-color: #F7F8FC;
-    color: #172033;
+    background-color: #F6F7F5;
+    color: #202B33;
+    background-image: radial-gradient(ellipse at 12% 0%, rgba(219, 231, 232, 0.34), transparent 34rem);
   }
 
   /* Typography Hierarchy */
@@ -72,7 +73,7 @@
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.2;
-    color: #172033;
+    color: #202B33;
   }
 
   h2, .h2 {
@@ -80,7 +81,7 @@
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.25;
-    color: #172033;
+    color: #202B33;
   }
 
   h3, .h3 {
@@ -88,7 +89,7 @@
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.3;
-    color: #172033;
+    color: #202B33;
   }
 
   h4, .h4 {
@@ -96,7 +97,7 @@
     font-weight: 600;
     letter-spacing: -0.01em;
     line-height: 1.4;
-    color: #172033;
+    color: #202B33;
   }
 
   p, span, label, input, button, select, textarea {
@@ -105,8 +106,9 @@
 
   /* Accessible focus ring */
   :focus-visible {
-    outline: 2px solid #4F46E5;
-    outline-offset: 2px;
+    outline: 2px solid #6D8998;
+    outline-offset: 3px;
+    border-radius: 5px;
   }
 }
 
@@ -233,4 +235,118 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* A calm, consistent finish for native controls and page transitions. */
+::selection { background: #DCE8E8; color: #243842; }
+
+input, select, textarea {
+  accent-color: #567789;
+}
+
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  transition: border-color 180ms var(--ease-smooth), box-shadow 180ms var(--ease-smooth), background-color 180ms var(--ease-smooth);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus,
+textarea:focus {
+  border-color: #91A8B2;
+  box-shadow: 0 0 0 4px rgba(86, 119, 137, 0.11);
+}
+
+img { color: #87939A; }
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter { animation: pageEnter 420ms var(--ease-spring) both; }
+
+/* Landing page scroll reveals and tactile, low-key interactions. */
+.landing-section,
+.feature-grid > div,
+.product-preview {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 650ms var(--ease-smooth), transform 650ms var(--ease-spring);
+}
+
+.landing-section.is-visible,
+.feature-grid > div.is-visible,
+.product-preview.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-grid > div:nth-child(3n + 2) { transition-delay: 75ms; }
+.feature-grid > div:nth-child(3n + 3) { transition-delay: 140ms; }
+
+.landing-hero {
+  isolation: isolate;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(217, 231, 232, 0.58), transparent 58%);
+}
+
+.landing-hero::before,
+.landing-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 19rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(86, 119, 137, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.landing-hero::before { top: 4rem; left: -13rem; box-shadow: 0 0 0 2.5rem rgba(86,119,137,.025), 0 0 0 5rem rgba(86,119,137,.02); }
+.landing-hero::after { top: 17rem; right: -14rem; width: 25rem; box-shadow: 0 0 0 3rem rgba(86,119,137,.025), 0 0 0 6rem rgba(86,119,137,.02); }
+
+.hero-eyebrow { animation: eyebrowIn 600ms 100ms var(--ease-spring) both; }
+.hero-title { animation: pageEnter 760ms 180ms var(--ease-spring) both; }
+.hero-actions { animation: pageEnter 760ms 320ms var(--ease-spring) both; }
+.product-preview.is-visible { transition-delay: 80ms; }
+
+.product-preview {
+  transform: perspective(1200px) rotateX(2deg) translateY(22px);
+  box-shadow: 0 32px 80px rgba(32, 53, 64, 0.11), 0 4px 14px rgba(32, 53, 64, 0.05);
+}
+.product-preview.is-visible { transform: perspective(1200px) rotateX(0) translateY(0); }
+
+.preview-row { transition: transform 240ms var(--ease-spring), box-shadow 240ms var(--ease-spring), border-color 240ms ease; }
+.preview-row:hover { transform: translateX(4px); border-color: #C9D6D8; box-shadow: 0 8px 20px rgba(32,53,64,.07); }
+
+.site-navbar { transition: box-shadow 260ms ease, background-color 260ms ease; }
+.site-navbar nav a,
+.site-navbar nav button { position: relative; }
+.site-navbar nav a::after,
+.site-navbar nav button::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 14px;
+  right: 14px;
+  bottom: 5px;
+  background: #6F8E9D;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease-spring);
+}
+.site-navbar nav a:hover::after,
+.site-navbar nav button:hover::after { transform: scaleX(1); }
+
+button:not(:disabled), a, [role="button"] { -webkit-tap-highlight-color: transparent; }
+button:not(:disabled) { transition: transform 200ms var(--ease-spring), box-shadow 200ms ease, background-color 200ms ease; }
+button:not(:disabled):hover { transform: translateY(-1px); }
+button:not(:disabled):active { transform: translateY(0) scale(.985); }
+
+@keyframes eyebrowIn {
+  from { opacity: 0; transform: translateY(8px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter, .hero-eyebrow, .hero-title, .hero-actions { animation: none; }
+  .landing-section, .feature-grid > div, .product-preview { opacity: 1; transform: none; transition: none; }
 }

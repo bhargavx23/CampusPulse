@@ -12,9 +12,9 @@ export function Card({
   return (
     <div
       className={`
-        bg-white rounded-2xl border border-[#E5E9F2] shadow-soft
-        transition-all duration-200 ease-out
-        ${hoverEffect ? 'hover:-translate-y-0.5 hover:shadow-elevated hover:border-[#D5DCE8]' : ''}
+        bg-white/95 rounded-[20px] border border-[#E5E9E6] shadow-soft
+        transition-all duration-300 ease-out
+        ${hoverEffect ? 'hover:-translate-y-1 hover:shadow-elevated hover:border-[#CFD9D5]' : ''}
         ${className}
       `}
       {...props}

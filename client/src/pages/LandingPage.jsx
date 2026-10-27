@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FileText,
@@ -21,22 +21,42 @@ import {
 import { Button, Card, CardContent, Badge } from '../components/ui';
 
 export function LandingPage() {
+  useEffect(() => {
+    const revealItems = document.querySelectorAll('.landing-section, .feature-grid > div, .product-preview');
+    if (!('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+    revealItems.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="w-full flex flex-col">
       {/* ========================================================= */}
       {/* SECTION B: HERO SECTION                                   */}
       {/* ========================================================= */}
-      <section className="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-32 bg-page border-b border-slate-200/60">
+      <section className="landing-hero relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-32 bg-page border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-6">
+          <div className="landing-hero-copy text-center max-w-3xl mx-auto space-y-6">
             {/* Tagline Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-xs font-semibold">
+            <div className="hero-eyebrow inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-xs font-semibold">
               <Activity className="w-3.5 h-3.5 text-primary-600" aria-hidden="true" strokeWidth={2.5} />
               <span>Smart Campus Issue Management</span>
             </div>
 
             {/* Main Headline in Space Grotesk */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.15]">
+            <h1 className="hero-title font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.15]">
               Campus Issues. <br className="hidden sm:inline" />
               <span className="text-primary-600">Clear Solutions.</span>
             </h1>
@@ -47,7 +67,7 @@ export function LandingPage() {
             </p>
 
             {/* Call To Action Button Group */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <div className="hero-actions pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
               <Link to="/register" className="w-full sm:w-auto">
                 <Button
                   variant="primary"
@@ -72,7 +92,7 @@ export function LandingPage() {
 
           {/* Product Preview — Example Complaint Tracking Interface */}
           <div className="mt-14 sm:mt-18 lg:mt-20 max-w-5xl mx-auto">
-            <div className="relative rounded-2xl p-2 sm:p-3 bg-white border border-slate-200 shadow-card">
+            <div className="product-preview relative rounded-2xl p-2 sm:p-3 bg-white border border-slate-200 shadow-card">
               {/* Illustrative Notice Badge */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-100 rounded-t-xl text-xs text-slate-500">
                 <div className="flex items-center gap-2">
@@ -118,7 +138,7 @@ export function LandingPage() {
                 {/* Demonstrative Issue Rows */}
                 <div className="space-y-3">
                   {/* Row 1 */}
-                  <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="preview-row p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-start gap-3.5">
                       <div className="p-2.5 rounded-xl bg-amber-50 text-amber-600 border border-amber-100 shrink-0 mt-0.5">
                         <Zap className="w-4 h-4" />
@@ -144,7 +164,7 @@ export function LandingPage() {
                   </div>
 
                   {/* Row 2 */}
-                  <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="preview-row p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-start gap-3.5">
                       <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 shrink-0 mt-0.5">
                         <Droplets className="w-4 h-4" />
@@ -170,7 +190,7 @@ export function LandingPage() {
                   </div>
 
                   {/* Row 3 */}
-                  <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="preview-row p-4 bg-white rounded-xl border border-slate-200 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-start gap-3.5">
                       <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 shrink-0 mt-0.5">
                         <Building2 className="w-4 h-4" />
@@ -204,7 +224,7 @@ export function LandingPage() {
       {/* ========================================================= */}
       {/* SECTION C: FEATURES                                       */}
       {/* ========================================================= */}
-      <section id="features" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16">
+      <section id="features" className="landing-section py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-18 space-y-3">
             <span className="text-xs font-bold text-primary-600 uppercase tracking-wider">
@@ -218,7 +238,7 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="feature-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Feature 1 */}
             <Card hoverEffect>
               <CardContent className="space-y-3.5">
@@ -315,7 +335,7 @@ export function LandingPage() {
       {/* ========================================================= */}
       {/* SECTION D: HOW IT WORKS                                   */}
       {/* ========================================================= */}
-      <section id="how-it-works" className="py-16 sm:py-24 bg-page border-b border-slate-200/80 scroll-mt-16">
+      <section id="how-it-works" className="landing-section py-16 sm:py-24 bg-page border-b border-slate-200/80 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-18 space-y-3">
             <span className="text-xs font-bold text-primary-600 uppercase tracking-wider">
@@ -405,7 +425,7 @@ export function LandingPage() {
       {/* ========================================================= */}
       {/* SECTION E: USER ROLES                                     */}
       {/* ========================================================= */}
-      <section id="roles" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16">
+      <section id="roles" className="landing-section py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-18 space-y-3">
             <span className="text-xs font-bold text-primary-600 uppercase tracking-wider">

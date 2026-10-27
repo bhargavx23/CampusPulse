@@ -11,40 +11,40 @@ export default {
         // Primary Brand Colors
         brand: {
           navy: '#172554',      // Midnight Navy
-          deep: '#3730A3',      // Deep Indigo
-          indigo: '#4F46E5',    // Royal Indigo
-          bright: '#6366F1',    // Bright Indigo
-          soft: '#EEF2FF',      // Soft Indigo
-          pale: '#F5F7FF',      // Pale Indigo
+          deep: '#365363',
+          indigo: '#48677A',
+          bright: '#5B7D90',
+          soft: '#EAF1F4',
+          pale: '#F4F7F8',
         },
         primary: {
-          50: '#F5F7FF',
-          100: '#EEF2FF',
-          200: '#C7D2FE',
-          300: '#A5B4FC',
-          400: '#818CF8',
-          500: '#6366F1',
-          600: '#4F46E5',       // Royal Indigo
-          700: '#3730A3',       // Deep Indigo
-          800: '#1E1B4B',
-          900: '#172554',       // Midnight Navy
-          DEFAULT: '#4F46E5',
+          50: '#F4F7F8',
+          100: '#EAF1F4',
+          200: '#D4E1E6',
+          300: '#B8CBD3',
+          400: '#91AAB6',
+          500: '#6F8E9D',
+          600: '#48677A',
+          700: '#365363',
+          800: '#2A424F',
+          900: '#203540',
+          DEFAULT: '#48677A',
         },
         // Backgrounds & Surfaces
         surface: {
-          main: '#F7F8FC',        // Main Background
-          secondary: '#F1F4FA',   // Secondary Background
+          main: '#F6F7F5',
+          secondary: '#EEF1EF',
           card: '#FFFFFF',        // Primary Surface
-          subtle: '#F5F6FF',      // Subtle Indigo Surface
+          subtle: '#F2F5F4',
           dark: '#172554',        // Dark Feature Surface
         },
-        page: '#F7F8FC',
+        page: '#F6F7F5',
         card: '#FFFFFF',
         // Text Hierarchy
         content: {
-          primary: '#172033',     // Primary Text
-          secondary: '#596579',   // Secondary Text
-          muted: '#8993A5',       // Muted Text
+          primary: '#202B33',
+          secondary: '#5D6B73',
+          muted: '#87939A',
           inverse: '#FFFFFF',     // Text on Dark Surfaces
         },
         // Accents
@@ -125,11 +125,11 @@ export default {
         'pill': '9999px',
       },
       boxShadow: {
-        'soft': '0 4px 16px rgba(23, 37, 84, 0.05)',
-        'elevated': '0 12px 32px rgba(23, 37, 84, 0.09)',
-        'modal': '0 24px 64px rgba(23, 37, 84, 0.16)',
-        'card': '0 4px 16px rgba(23, 37, 84, 0.05)',
-        'card-hover': '0 12px 32px rgba(23, 37, 84, 0.09)',
+        'soft': '0 3px 12px rgba(32, 53, 64, 0.045), 0 1px 2px rgba(32, 53, 64, 0.03)',
+        'elevated': '0 16px 40px rgba(32, 53, 64, 0.09), 0 3px 8px rgba(32, 53, 64, 0.04)',
+        'modal': '0 28px 72px rgba(32, 53, 64, 0.18)',
+        'card': '0 3px 12px rgba(32, 53, 64, 0.045), 0 1px 2px rgba(32, 53, 64, 0.03)',
+        'card-hover': '0 16px 40px rgba(32, 53, 64, 0.09), 0 3px 8px rgba(32, 53, 64, 0.04)',
         'input-focus': '0 0 0 3px rgba(79, 70, 229, 0.15)',
       },
       transitionTimingFunction: {

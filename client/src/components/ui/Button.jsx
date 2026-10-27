@@ -23,7 +23,7 @@ export const Button = React.forwardRef(({
   className = '',
   ...props
 }, ref) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium font-sans rounded-xl transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed select-none active:scale-[0.98]';
+  const baseStyles = 'inline-flex items-center justify-center font-medium font-sans rounded-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed select-none active:scale-[0.985]';
 
   const sizeStyles = {
     sm: 'text-xs px-3 py-1.5 gap-1.5 h-8',
@@ -32,7 +32,7 @@ export const Button = React.forwardRef(({
   };
 
   const variantStyles = {
-    primary: 'bg-[#4F46E5] text-white hover:bg-[#3730A3] active:bg-[#312E81] shadow-soft focus-visible:ring-[#4F46E5] disabled:bg-[#E5E9F2] disabled:text-[#8993A5] disabled:shadow-none',
+    primary: 'bg-[#48677A] text-white hover:bg-[#365363] active:bg-[#2F4855] shadow-soft focus-visible:ring-[#6D8998] disabled:bg-[#E5E9F2] disabled:text-[#8993A5] disabled:shadow-none',
     secondary: 'bg-[#F1F4FA] text-[#172033] hover:bg-[#E5E9F2] active:bg-[#D5DCE8] focus-visible:ring-[#4F46E5] disabled:bg-[#F1F4FA] disabled:text-[#8993A5]',
     outline: 'border border-[#E5E9F2] bg-white text-[#172033] hover:bg-[#F7F8FC] hover:border-[#D5DCE8] active:bg-[#F1F4FA] focus-visible:ring-[#4F46E5] disabled:bg-white disabled:border-[#E5E9F2] disabled:text-[#8993A5] shadow-soft',
     ghost: 'bg-transparent text-[#596579] hover:bg-[#F1F4FA] hover:text-[#172033] active:bg-[#E5E9F2] focus-visible:ring-[#4F46E5] disabled:text-[#8993A5]',
